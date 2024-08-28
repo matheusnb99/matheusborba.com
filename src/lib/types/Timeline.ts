@@ -1,6 +1,6 @@
 export type Category = "work" | "education" | "project"
 
-export type TimeLineItem = {
+export type TimeLineItemType = {
   title: string
   description: string
   company: string
