@@ -1,42 +1,32 @@
 import Timeline from "@/components/Timeline"
-import type { TimeLineItemType } from "@/lib/types/Timeline"
+import { timelineElements } from "@/lib/database"
+import { searchParamsCache } from "@/lib/searchParamsCache"
+import { TimeLineItemType } from "@/lib/types/Timeline"
+import { NextPage } from "next"
 
-const elements: TimeLineItemType[] = [
-  {
-    title: "Started Learning JavaScript",
-    startDate: "2020-01-01",
-    endDate: "2020-01-01",
-    description:
-      "Began my journey into web development by learning JavaScript.",
-    company: "",
-    category: "work",
-    technologies: [],
-  },
-  {
-    title: "Built My First Website",
-    description:
-      "Created my first personal website using HTML, CSS, and JavaScript.",
-    company: "",
-    startDate: "",
-    endDate: "",
-    category: "work",
-    technologies: [],
-  },
-  {
-    title: "Learned React",
-    description:
-      "Started learning React to build more dynamic web applications.",
-    company: "",
-    startDate: "",
-    endDate: "",
-    category: "work",
-    technologies: [],
-  },
-]
-const Home = () => (
-  <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <Timeline elements={elements} />
-  </main>
-)
+type Props = {
+  searchParams: Record<string, string | string[] | undefined>
+}
+
+const Home: NextPage<Props> = ({ searchParams }) => {
+  const { category } = searchParamsCache.parse(searchParams)
+  const sortedElements = timelineElements.sort(
+    (a: TimeLineItemType, b: TimeLineItemType) =>
+      new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
+  )
+  const filteredElements = sortedElements.filter((element) => {
+    if (!category || category === "all") {
+      return true
+    }
+
+    return element.category === category
+  })
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Timeline elements={filteredElements} />
+    </main>
+  )
+}
 
 export default Home

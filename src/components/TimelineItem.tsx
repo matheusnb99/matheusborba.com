@@ -1,28 +1,46 @@
+import StackIcon from "@/components/StackIcon"
 import type { TimeLineItemType } from "@/lib/types/Timeline"
-import { BookOpen, Briefcase, CalendarDays } from "lucide-react"
 import { FunctionComponent } from "react"
+import { LuBookOpen, LuBriefcase, LuCalendarDays } from "react-icons/lu"
 
 type TimeLineItemProps = {
   element: TimeLineItemType
 }
 
-const icons = {
-  work: <Briefcase className="w-6 h-6" />,
-  education: <BookOpen className="w-6 h-6" />,
-  project: <CalendarDays className="w-6 h-6" />,
+const formatDate = (date: Date | undefined) => {
+  if (!date) {
+    return ""
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+  }).format(date)
+}
+const categoryIcons = {
+  work: <LuBriefcase className="w-6 h-6" />,
+  school: <LuBookOpen className="w-6 h-6" />,
+  project: <LuCalendarDays className="w-6 h-6" />,
 }
 const TimeLineItem: FunctionComponent<TimeLineItemProps> = ({ element }) => (
   <article className="flex gap-4 pb-10 relative before:absolute before:left-[17px] before:h-full before:w-0.5 before:bg-gray-200">
     <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full bg-white border border-gray-200 shadow">
-      {icons[element.category]}
+      {categoryIcons[element.category]}
     </div>
     <div className="flex-1">
       <h3 className="text-lg font-semibold">{element.title}</h3>
       <p className="text-sm text-gray-500">{element.company}</p>
       <p className="text-sm text-gray-500">
-        {element.startDate} - {element.endDate}
+        {formatDate(element.startDate)} - {formatDate(element.endDate)}
       </p>
-      <p className="mt-2">{element.description}</p>
+      <p className="mt-2 font-semibold ">{element.description}</p>
+      {element.tasks && (
+        <ul className="list-disc list-inside mt-2">
+          {element.tasks.map((task, index) => (
+            <li key={index}>{task}</li>
+          ))}
+        </ul>
+      )}
       {element.url && (
         <a
           href={element.url}
@@ -34,12 +52,7 @@ const TimeLineItem: FunctionComponent<TimeLineItemProps> = ({ element }) => (
       {element.technologies.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-2">
           {element.technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-gray-100 rounded-full text-xs"
-            >
-              {tech}
-            </span>
+            <StackIcon key={index} item={tech} />
           ))}
         </div>
       )}
