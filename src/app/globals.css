@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-p {
-  font-familly: var(--font-abuget);
+body {
+  background: url("../../public/background.svg") no-repeat right top;
+  background-size: 90%;
 }
