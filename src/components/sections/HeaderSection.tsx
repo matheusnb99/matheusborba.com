@@ -2,9 +2,9 @@ import { abuget } from "@/lib/font/font"
 import { FunctionComponent } from "react"
 
 const HeaderSection: FunctionComponent = () => (
-  <header className="flex mt-80 ml-28">
-    <div className="w-1/2">
-      <h1 className="text-6xl font-bold mb-10 ">
+  <header className="flex mt-80 md:ml-28 sm:ml-10">
+    <div className="w-4/6 md:min-w-[800px] sm:min-w-[400px]">
+      <h1 className="lg:text-5xl font-bold mb-10 md:text-4xl">
         <span className="whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-pink-600">
           Hello, my name is
         </span>
@@ -13,7 +13,7 @@ const HeaderSection: FunctionComponent = () => (
         >
           Matheus Nunes Borba.
         </span>
-        <span className="text-5xl font-bold">
+        <span className="font-bold">
           Passionate about technological trends, I provide quick, effective, and
           innovative solutions to meet business needs
         </span>
