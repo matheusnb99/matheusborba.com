@@ -2,8 +2,8 @@ import { abuget } from "@/lib/font/font"
 import { FunctionComponent } from "react"
 
 const HeaderSection: FunctionComponent = () => (
-  <header className="flex mt-80 md:ml-28 sm:ml-10">
-    <div className="w-4/6 md:min-w-[800px] sm:min-w-[400px]">
+  <header className="flex mt-60 ">
+    <div className="w-4/6 md:min-w-[600px] sm:min-w-[400px]">
       <h1 className="lg:text-5xl font-bold mb-10 md:text-4xl">
         <span className="whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-pink-600">
           Hello, my name is

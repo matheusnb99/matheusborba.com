@@ -1,6 +1,7 @@
 "use client"
 import { parseAsString, useQueryState } from "nuqs"
 import { FunctionComponent } from "react"
+import { FaArrowDown, FaArrowUp } from "react-icons/fa"
 
 const handleClick = (old: string) => (old === "simple" ? "detail" : "simple")
 const ViewButton: FunctionComponent = () => {
@@ -11,7 +12,7 @@ const ViewButton: FunctionComponent = () => {
 
   return (
     <button onClick={() => setView(handleClick)}>
-      {view === "simple" ? "v" : "^"}
+      {view === "simple" ? <FaArrowDown /> : <FaArrowUp />}
     </button>
   )
 }
