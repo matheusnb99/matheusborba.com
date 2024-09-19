@@ -1,4 +1,4 @@
-type Category = "work" | "school" | "project"
+export type Category = "work" | "school" | "project"
 
 export type StackOptions =
   | "JavaScript"

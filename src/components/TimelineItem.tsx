@@ -1,32 +1,16 @@
 import StackIcon from "@/components/StackIcon"
 import type { TimeLineItemType } from "@/lib/types/Timeline"
 import { FunctionComponent } from "react"
-import { LuBookOpen, LuBriefcase, LuCalendarDays } from "react-icons/lu"
+import TimelineIcon from "./TimelineIcon"
+import { formatDate } from "@/lib/formatDate"
 
 type TimeLineItemProps = {
   element: TimeLineItemType
 }
 
-const formatDate = (date: Date | undefined) => {
-  if (!date) {
-    return ""
-  }
-
-  return new Intl.DateTimeFormat("en", {
-    year: "numeric",
-    month: "long",
-  }).format(date)
-}
-const categoryIcons = {
-  work: <LuBriefcase className="w-6 h-6" />,
-  school: <LuBookOpen className="w-6 h-6" />,
-  project: <LuCalendarDays className="w-6 h-6" />,
-}
 const TimeLineItem: FunctionComponent<TimeLineItemProps> = ({ element }) => (
   <article className="flex gap-4 pb-10 relative before:absolute before:left-[17px] before:h-full before:w-0.5 before:bg-gray-200">
-    <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full bg-white border border-gray-200 shadow">
-      {categoryIcons[element.category]}
-    </div>
+    <TimelineIcon category={element.category} />
     <div className="flex-1">
       <h3 className="text-lg font-semibold">{element.title}</h3>
       <p className="text-sm text-gray-500">{element.company}</p>
