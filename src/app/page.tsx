@@ -1,6 +1,6 @@
-import HeaderSection from "@/components/HeaderSection"
 import LastProjects from "@/components/LastProjects"
-import Timeline from "@/components/Timeline"
+import HeaderSection from "@/components/sections/HeaderSection"
+import Timeline from "@/components/timeline/Timeline"
 import ViewButton from "@/components/ViewButton"
 import { timelineElements } from "@/lib/database"
 import { searchParamsCache } from "@/lib/searchParamsCache"
