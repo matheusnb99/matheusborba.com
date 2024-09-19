@@ -4,6 +4,7 @@ import { createSearchParamsCache, parseAsString } from "nuqs/server"
 const searchParams = {
   category: parseAsString.withDefault("all"),
   view: parseAsString.withDefault("simple"),
+  projectId: parseAsString,
 }
 
 export const searchParamsCache = createSearchParamsCache(searchParams)

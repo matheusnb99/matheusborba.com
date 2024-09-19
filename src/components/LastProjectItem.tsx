@@ -9,7 +9,7 @@ type LastProjectItemProps = {
 const LastProjectItem: FunctionComponent<LastProjectItemProps> = ({
   element,
 }) => (
-  <div className="bg-red-400 shadow-2xl rounded-r-lg min-w-[400px] grow w-full px-10 py-5">
+  <div className="shadow-2xl rounded-r-lg min-w-[400px] grow w-full px-10 py-5">
     <h3 className="text-lg font-semibold pb-2">{element.title}</h3>
     <p className="text-base text-gray-500">{element.company}</p>
     <p className="text-base text-gray-500">

@@ -1,6 +1,12 @@
 import type { Metadata } from "next"
 import React from "react"
 import "./globals.css"
+import type { Viewport } from "next"
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: "Create Next App",

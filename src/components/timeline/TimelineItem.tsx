@@ -11,7 +11,7 @@ type TimeLineItemProps = {
 const TimeLineItem: FunctionComponent<TimeLineItemProps> = ({ element }) => (
   <article className="flex gap-4 pb-10 relative before:absolute before:left-[17px] before:h-full before:w-0.5 before:bg-gray-200">
     <TimelineIcon category={element.category} />
-    <div className="flex-1">
+    <div className="flex-1 shadow-2xl rounded-r-lg py-5 px-10">
       <h3 className="text-lg font-semibold">{element.title}</h3>
       <p className="text-sm text-gray-500">{element.company}</p>
       <p className="text-sm text-gray-500">

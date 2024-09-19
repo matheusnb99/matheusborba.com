@@ -46,7 +46,7 @@ export const timelineElements: TimeLineItemType[] = [
     ],
     startDate: new Date("aug 2024"),
     endDate: new Date("may 2024"),
-    category: "work",
+    category: "project",
     technologies: [
       "NextJs",
       "Prisma",
@@ -64,7 +64,7 @@ export const timelineElements: TimeLineItemType[] = [
     company: "Momotaro",
     startDate: new Date("jul 2023"),
     endDate: new Date("dec 2023"),
-    category: "work",
+    category: "project",
     technologies: ["NextJs", "Next Auth", "TypeScript", "Express", "Tailwind"],
   },
   {

@@ -11,8 +11,10 @@ const categoryIcons = {
   project: <LuCalendarDays className="w-6 h-6" />,
 }
 const TimelineIcon: FunctionComponent<TimelineIconProps> = ({ category }) => (
-  <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full bg-white border border-gray-200 shadow">
-    {categoryIcons[category]}
+  <div className="pt-5 flex justify-center">
+    <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full bg-white border border-gray-200 shadow">
+      {categoryIcons[category]}
+    </div>
   </div>
 )
 

@@ -4,14 +4,19 @@ import { FunctionComponent } from "react"
 import { FaArrowDown, FaArrowUp } from "react-icons/fa"
 
 const handleClick = (old: string) => (old === "simple" ? "detail" : "simple")
-const ViewButton: FunctionComponent = () => {
+
+type ViewButtonProps = {
+  order?: string
+}
+
+const ViewButton: FunctionComponent<ViewButtonProps> = ({ order = "" }) => {
   const [view, setView] = useQueryState(
     "view",
     parseAsString.withDefault("simple").withOptions({ shallow: false }),
   )
 
   return (
-    <button onClick={() => setView(handleClick)}>
+    <button className={`p-3 ${order}`} onClick={() => setView(handleClick)}>
       {view === "simple" ? <FaArrowDown /> : <FaArrowUp />}
     </button>
   )

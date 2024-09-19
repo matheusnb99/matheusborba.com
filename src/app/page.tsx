@@ -1,18 +1,56 @@
+import ClickableDiv from "@/components/ClickableDiv"
 import LastProjectItem from "@/components/LastProjectItem"
+import ProjectCard from "@/components/ProjectCard"
 import HeaderSection from "@/components/sections/HeaderSection"
 import Timeline from "@/components/timeline/Timeline"
 import ViewButton from "@/components/ViewButton"
 import { timelineElements } from "@/lib/database"
 import { searchParamsCache } from "@/lib/searchParamsCache"
-import { TimeLineItemType } from "@/lib/types/Timeline"
+import { ProjectType, TimeLineItemType } from "@/lib/types/Timeline"
 import { NextPage } from "next"
 
 type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
+import implic_action_onb_1 from "@/../public/projects/implic_action_onb_1.png"
+
+const projects: ProjectType[] = [
+  {
+    title: "Implic-Action",
+    stack: ["React", "NextJs", "Tailwind"],
+    description: "This is a project",
+    image: implic_action_onb_1,
+    github: "private",
+    demo: "http://community.leboncitoyen.fr/fr",
+  },
+  {
+    title: "Project",
+    stack: ["React", "NextJs", "Tailwind"],
+    description: "This is a project",
+    image: implic_action_onb_1,
+    github: "https://github.com",
+    demo: "https://demo.com",
+  },
+  {
+    title: "Implic-Action",
+    stack: ["React", "NextJs", "Tailwind"],
+    description: "This is a project",
+    image: implic_action_onb_1,
+    github: "private",
+    demo: "http://community.leboncitoyen.fr/fr",
+  },
+  {
+    title: "Project",
+    stack: ["React", "NextJs", "Tailwind"],
+    description: "This is a project",
+    image: implic_action_onb_1,
+    github: "https://github.com",
+    demo: "https://demo.com",
+  },
+]
 
 const Home: NextPage<Props> = ({ searchParams }) => {
-  const { category, view } = searchParamsCache.parse(searchParams)
+  const { category, view, projectId } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
@@ -28,14 +66,14 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   const simpleView = view === "simple"
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between  xl:p-24 lg:mx-28 md:mx-18 sm:mx-5 sm:px-5">
+    <main className="flex min-h-screen flex-col items-center justify-between  xl:p-24 lg:mx-28 md:mx-18 mx-5 px-5">
       <section className="h-[80vh] w-full">
         <HeaderSection />
       </section>
-      <section className="h-[80vh] w-full">
-        <div className="flex flex-row space-x-4">
+      <section className="h-full w-full pb-[300px]">
+        <div className="flex flex-row space-x-4 ">
           <ViewButton />
-          <h2 className={`text-4xl`}>
+          <h2 className="text-4xl pb-5">
             <span className={!simpleView ? "line-through" : ""}>
               My last experience
             </span>
@@ -45,9 +83,9 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         {simpleView ? (
           <div>
             <h2 className="text-xl px-10 py-5">Last Projects</h2>
-            <div className="w-full flex flex-col items-center justify-around lg:flex-row lg:space-x-4 lg:space-y-0 md:space-y-4  sm:space-y-4">
+            <div className="w-full flex flex-col items-center justify-around lg:flex-row lg:space-x-4 lg:space-y-0 space-x-0 space-y-4">
               <LastProjectItem element={highlightedList[0]} />
-              <ViewButton />
+              <ViewButton order="order-last lg:order-none" />
               <LastProjectItem element={highlightedList[1]} />
             </div>
           </div>
@@ -57,6 +95,24 @@ const Home: NextPage<Props> = ({ searchParams }) => {
             <ViewButton />
           </>
         )}
+      </section>
+      <section>
+        <div className="w-full  flex flex-col flex-wrap items-center justify-around md:flex-row ">
+          {projects.map((project, index) => {
+            const expanded = projectId === index.toString()
+            return (
+              <div className="my-2 mx-2 w-1/2 md:w-1/4">
+                <ClickableDiv
+                  id={index.toString()}
+                  expanded={expanded}
+                  key={index}
+                >
+                  <ProjectCard project={project} expanded={expanded} />
+                </ClickableDiv>
+              </div>
+            )
+          })}
+        </div>
       </section>
     </main>
   )

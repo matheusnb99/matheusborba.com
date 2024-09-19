@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image"
+
 export type Category = "work" | "school" | "project"
 
 export type StackOptions =
@@ -39,4 +41,13 @@ export type TimeLineItemType = {
   category: Category
   url?: string
   technologies: StackOptions[]
+}
+
+export type ProjectType = {
+  title: string
+  stack: StackOptions[]
+  description: string
+  image: StaticImageData
+  github: string
+  demo: string
 }
