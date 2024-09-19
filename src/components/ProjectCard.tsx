@@ -18,13 +18,15 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
 
   return (
     <div
-      className={`${expanded ? "w-[500px] h-[500px]" : ""} bg-gray-200 rounded-2xl`}
+      className={`${expanded ? "w-2/4 h-[500px] absolute left-1/4" : ""} bg-gray-200 rounded-2xl`}
     >
-      <Image src={project.image} alt="img" width={width} height={height} />
+      <div className="flex justify-center ">
+        <Image src={project.image} alt="img" width={width} height={height} />
+      </div>
       <div className="flex justify-between gap-2">
-        <div>{project.title}</div>
+        <h2 className="px-10 py-5 text-xl font-bold">{project.title}</h2>
         {expanded && (
-          <div className="flex justify-around w-52 ">
+          <div className="flex justify-around px-4">
             <ProjectButton url={project.github} type="github" />
             <ProjectButton url={project.demo} type="demo" />
           </div>

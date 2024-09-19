@@ -82,7 +82,6 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         </div>
         {simpleView ? (
           <div>
-            <h2 className="text-xl px-10 py-5">Last Projects</h2>
             <div className="w-full flex flex-col items-center justify-around lg:flex-row lg:space-x-4 lg:space-y-0 space-x-0 space-y-4">
               <LastProjectItem element={highlightedList[0]} />
               <ViewButton order="order-last lg:order-none" />
@@ -97,6 +96,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         )}
       </section>
       <section>
+        <h2 className="text-4xl pb-5">Some of my projects</h2>
         <div className="w-full  flex flex-col flex-wrap items-center justify-around md:flex-row ">
           {projects.map((project, index) => {
             const expanded = projectId === index.toString()
