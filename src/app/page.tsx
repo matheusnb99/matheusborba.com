@@ -1,5 +1,4 @@
 import ClickableDiv from "@/components/ClickableDiv"
-import LastProjectItem from "@/components/LastProjectItem"
 import ProjectCard from "@/components/ProjectCard"
 import HeaderSection from "@/components/sections/HeaderSection"
 import Timeline from "@/components/timeline/Timeline"
@@ -12,13 +11,16 @@ import { NextPage } from "next"
 type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
+// eslint-disable-next-line camelcase
 import implic_action_onb_1 from "@/../public/projects/implic_action_onb_1.png"
+import LastProjectCard from "@/components/timeline/LastProjectCard"
 
 const projects: ProjectType[] = [
   {
     title: "Implic-Action",
     stack: ["React", "NextJs", "Tailwind"],
     description: "This is a project",
+    // eslint-disable-next-line camelcase
     image: implic_action_onb_1,
     github: "private",
     demo: "http://community.leboncitoyen.fr/fr",
@@ -27,6 +29,7 @@ const projects: ProjectType[] = [
     title: "Project",
     stack: ["React", "NextJs", "Tailwind"],
     description: "This is a project",
+    // eslint-disable-next-line camelcase
     image: implic_action_onb_1,
     github: "https://github.com",
     demo: "https://demo.com",
@@ -35,6 +38,7 @@ const projects: ProjectType[] = [
     title: "Implic-Action",
     stack: ["React", "NextJs", "Tailwind"],
     description: "This is a project",
+    // eslint-disable-next-line camelcase
     image: implic_action_onb_1,
     github: "private",
     demo: "http://community.leboncitoyen.fr/fr",
@@ -43,12 +47,13 @@ const projects: ProjectType[] = [
     title: "Project",
     stack: ["React", "NextJs", "Tailwind"],
     description: "This is a project",
+    // eslint-disable-next-line camelcase
     image: implic_action_onb_1,
     github: "https://github.com",
     demo: "https://demo.com",
   },
 ]
-
+// eslint-disable-next-line max-lines-per-function
 const Home: NextPage<Props> = ({ searchParams }) => {
   const { category, view, projectId } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(
@@ -82,10 +87,10 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         </div>
         {simpleView ? (
           <div>
-            <div className="w-full flex flex-col items-center justify-around lg:flex-row lg:space-x-4 lg:space-y-0 space-x-0 space-y-4">
-              <LastProjectItem element={highlightedList[0]} />
+            <div className="w-full flex flex-col items-center justify-around lg:flex-row ">
+              <LastProjectCard element={highlightedList[0]} />
               <ViewButton order="order-last lg:order-none" />
-              <LastProjectItem element={highlightedList[1]} />
+              <LastProjectCard element={highlightedList[1]} />
             </div>
           </div>
         ) : (
@@ -100,13 +105,10 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <div className="w-full  flex flex-col flex-wrap items-center justify-around md:flex-row ">
           {projects.map((project, index) => {
             const expanded = projectId === index.toString()
+
             return (
-              <div className="my-2 mx-2 w-1/2 md:w-1/4">
-                <ClickableDiv
-                  id={index.toString()}
-                  expanded={expanded}
-                  key={index}
-                >
+              <div className="my-2 mx-2 w-1/2 md:w-1/4" key={index}>
+                <ClickableDiv id={index.toString()} expanded={expanded}>
                   <ProjectCard project={project} expanded={expanded} />
                 </ClickableDiv>
               </div>
