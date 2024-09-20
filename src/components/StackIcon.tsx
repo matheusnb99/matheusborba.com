@@ -1,6 +1,7 @@
 "use client"
 import { StackOptions } from "@/lib/types/Timeline"
-import { FunctionComponent, useState } from "react"
+import { Tooltip, TooltipProvider } from "@radix-ui/react-tooltip"
+import { FunctionComponent } from "react"
 import { FaJava } from "react-icons/fa"
 import {
   SiCss3,
@@ -26,6 +27,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si"
+import { TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 type Props = {
   item: StackOptions
@@ -62,8 +64,6 @@ const techStackIcons = {
   "AgilePoint": null,
 }
 const StackIcon: FunctionComponent<Props> = ({ item }) => {
-  const [hovered, setHovered] = useState(false)
-
   if (!techStackIcons[item]) {
     return (
       <span className="px-2 py-2 bg-gray-100 rounded-full text-xs">{item}</span>
@@ -71,21 +71,15 @@ const StackIcon: FunctionComponent<Props> = ({ item }) => {
   }
 
   return (
-    <div
-      className="relative flex items-center justify-center p-2"
-      onMouseEnter={() => {
-        setHovered(true)
-      }}
-      onMouseLeave={() => {
-        setHovered(false)
-      }}
-    >
-      {techStackIcons[item]}
-      {hovered && (
-        <div className="absolute top-0 left-0 z-10 bg-white shadow-lg p-2 rounded-lg text-xs">
-          {item}
-        </div>
-      )}
+    <div className="relative flex items-center justify-center p-2">
+      <TooltipProvider delayDuration={100}>
+        <Tooltip>
+          <TooltipTrigger>{techStackIcons[item]}</TooltipTrigger>
+          <TooltipContent>
+            <p>{item}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   )
 }

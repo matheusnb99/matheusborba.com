@@ -1,5 +1,5 @@
 import ClickableDiv from "@/components/ClickableDiv"
-import ProjectCard from "@/components/ProjectCard"
+import ProjectCard from "@/components/project/ProjectCard"
 import HeaderSection from "@/components/sections/HeaderSection"
 import Timeline from "@/components/timeline/Timeline"
 import ViewButton from "@/components/ViewButton"
@@ -109,7 +109,11 @@ const Home: NextPage<Props> = ({ searchParams }) => {
             return (
               <div className="my-2 mx-2 w-1/2 md:w-1/4" key={index}>
                 <ClickableDiv id={index.toString()} expanded={expanded}>
-                  <ProjectCard project={project} expanded={expanded} />
+                  <ProjectCard
+                    project={project}
+                    expanded={expanded}
+                    id={index.toString()}
+                  />
                 </ClickableDiv>
               </div>
             )

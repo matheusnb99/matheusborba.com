@@ -1,6 +1,6 @@
 "use client"
 import { parseAsString, useQueryState } from "nuqs"
-import { FunctionComponent, useRef } from "react"
+import React, { FunctionComponent, useRef } from "react"
 
 import { useOnClickOutside } from "usehooks-ts"
 
@@ -17,20 +17,18 @@ const ClickableDiv: FunctionComponent<ClickableDivProps> = ({
 }) => {
   const [projectId, setProjectId] = useQueryState(
     "projectId",
-    parseAsString.withOptions({ shallow: false, scroll: false }),
+    parseAsString.withOptions({ scroll: false }),
   )
   const ref = useRef(null)
-
   const handleClickOutside = () => {
     if (expanded) {
-      setProjectId(null)
+      void setProjectId(null)
     }
   }
 
   useOnClickOutside(ref, handleClickOutside)
 
   if (projectId && projectId !== id) {
-    console.log("hidden")
     return null
   }
 
@@ -38,7 +36,7 @@ const ClickableDiv: FunctionComponent<ClickableDivProps> = ({
     <div
       className={`${!expanded ? "cursor-pointer" : ""} p-2`}
       onClick={() => {
-        setProjectId(id)
+        void setProjectId(id)
       }}
       ref={ref}
     >
