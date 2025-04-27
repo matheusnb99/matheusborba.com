@@ -1,7 +1,8 @@
 import HeaderSection from "@/components/HeaderSection"
 import LastProjects from "@/components/LastProjects"
+import StackSection from "@/components/StackSection"
 import Timeline from "@/components/Timeline"
-import ViewButton from "@/components/ViewButton"
+import TimelineToggle from "@/components/TimelineToggle"
 import { timelineElements } from "@/lib/database"
 import { searchParamsCache } from "@/lib/searchParamsCache"
 import { TimeLineItemType } from "@/lib/types/Timeline"
@@ -11,6 +12,21 @@ type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
 
+const getStack = (elements: TimeLineItemType[]) => {
+  const allTechs = elements.flatMap((item) => item.technologies)
+  // 2. Count appearances
+  const techCount = allTechs.reduce<Record<string, number>>((acc, tech) => {
+    acc[tech] = (acc[tech] || 0) + 1
+
+    return acc
+  }, {})
+  const sortedTechs = Object.entries(techCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tech, count]) => ({ technology: tech, count }))
+  const topTechs = sortedTechs.slice(0, 10)
+
+  return topTechs
+}
 const Home: NextPage<Props> = ({ searchParams }) => {
   const { category, view } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(
@@ -26,6 +42,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   })
   const highlightedList = sortedElements.slice(0, 2)
   const simpleView = view === "simple"
+  const stack = getStack(filteredElements)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -33,15 +50,18 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <HeaderSection />
       </section>
       <section className="h-[80vh]">
-        <h2 className={`text-4xl `}>
-          <span className={!simpleView ? "line-through" : ""}>
+        <StackSection stack={stack} />
+      </section>
+      <section className="h-[80vh] xl:w-[60%]">
+        <TimelineToggle />
+        <h2 className={`text-4xl`}>
+          <span className={`strike ${!simpleView ? "strike-active" : ""}`}>
             My last experience
           </span>
-          <span>{!simpleView && "My whole career"}</span>
+          <span className="">{!simpleView && " My whole career"}</span>
         </h2>
         {simpleView && <LastProjects elements={highlightedList} />}
         {!simpleView && <Timeline elements={filteredElements} />}
-        <ViewButton />
       </section>
     </main>
   )

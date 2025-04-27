@@ -6,3 +6,26 @@ body {
   background: url("../../public/background.svg") no-repeat right top;
   background-size: 90%;
 }
+
+.strike {
+  --thickness: 0.1em;
+  background: linear-gradient(90deg, transparent, currentColor 0) no-repeat
+    right center / 0% var(--thickness);
+  background-position-x: left;
+  transition: background-size 0.4s ease;
+  font: 25px Arial;
+  padding: 0 0.2em;
+}
+
+.strike-active {
+  background-size: 100% var(--thickness);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
