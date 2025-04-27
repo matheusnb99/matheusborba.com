@@ -11,6 +11,7 @@ import { NextPage } from "next"
 type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
+// eslint-disable-next-line camelcase
 
 const getStack = (elements: TimeLineItemType[]) => {
   const allTechs = elements.flatMap((item) => item.technologies)
@@ -28,7 +29,7 @@ const getStack = (elements: TimeLineItemType[]) => {
   return topTechs
 }
 const Home: NextPage<Props> = ({ searchParams }) => {
-  const { category, view } = searchParamsCache.parse(searchParams)
+  const { category, view, projectId } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
@@ -45,8 +46,8 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   const stack = getStack(filteredElements)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <section className="h-[80vh]">
+    <main className="flex min-h-screen flex-col items-center justify-between  xl:p-24 lg:mx-28 md:mx-18 mx-5 px-5">
+      <section className="h-[80vh] w-full">
         <HeaderSection />
       </section>
       <section className="h-[80vh]">

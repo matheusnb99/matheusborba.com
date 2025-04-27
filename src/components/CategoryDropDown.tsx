@@ -10,10 +10,7 @@ const CategoryDropDown: FunctionComponent = () => {
   )
 
   return (
-    <div>
-      <label htmlFor="options" className="mr-2">
-        Choose an option:
-      </label>
+    <div className="md:float-none lg:float-right">
       <select
         id="options"
         value={category}
