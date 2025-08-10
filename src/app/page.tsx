@@ -5,6 +5,7 @@ import Timeline from "@/components/timeline/Timeline"
 import TimelineToggle from "@/components/TimelineToggle"
 import { timelineElements } from "@/lib/database"
 import { searchParamsCache } from "@/lib/searchParamsCache"
+import { getStack } from "@/lib/timelineHelpers"
 import { TimeLineItemType } from "@/lib/types/Timeline"
 import { NextPage } from "next"
 
@@ -13,21 +14,6 @@ type Props = {
 }
 // eslint-disable-next-line camelcase
 
-const getStack = (elements: TimeLineItemType[]) => {
-  const allTechs = elements.flatMap((item) => item.technologies)
-  // 2. Count appearances
-  const techCount = allTechs.reduce<Record<string, number>>((acc, tech) => {
-    acc[tech] = (acc[tech] || 0) + 1
-
-    return acc
-  }, {})
-  const sortedTechs = Object.entries(techCount)
-    .sort((a, b) => b[1] - a[1])
-    .map(([tech, count]) => ({ technology: tech, count }))
-  const topTechs = sortedTechs.slice(0, 10)
-
-  return topTechs
-}
 const Home: NextPage<Props> = ({ searchParams }) => {
   const { category, view, projectId } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(

@@ -21,7 +21,7 @@ const StackSection: FunctionComponent<StackSectionProps> = ({ stack }) => (
           const angle = (360 / stack.length) * index
 
           return (
-            <>
+            <div key={tech.technology}>
               <div
                 className="absolute top-[43%] left-1/2 w-px bg-gray-400 mx-[35px]"
                 style={{
@@ -30,7 +30,6 @@ const StackSection: FunctionComponent<StackSectionProps> = ({ stack }) => (
                 }}
               />
               <div
-                key={tech.technology}
                 className="hover:bg-gray-300 absolute top-1/2 left-1/2 w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center shadow-md"
                 style={{
                   transform: `
@@ -45,7 +44,7 @@ const StackSection: FunctionComponent<StackSectionProps> = ({ stack }) => (
                   <p className="text-center text-xs">{tech.technology}</p>
                 </div>
               </div>
-            </>
+            </div>
           )
         })}
       </div>
