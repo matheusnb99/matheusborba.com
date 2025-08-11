@@ -52,6 +52,11 @@ const Home: NextPage<Props> = ({ searchParams }) => {
             <FooterSection />
           </div>
         )}
+        {!simpleView && (
+          <div className="w-screen -ml-[calc(50vw-50%)] flex justify-center mt-8">
+            <FooterSection />
+          </div>
+        )}
       </main>
     </div>
   )

@@ -2,7 +2,6 @@ import LastProjects from "@/components/LastProjects"
 import { ClientAnimatePresence } from "@/components/motion/ClientAnimatePresence"
 import { ClientLayoutGroup } from "@/components/motion/ClientLayoutGroup"
 import { MotionDiv } from "@/components/motion/MotionDiv"
-import FooterSection from "@/components/sections/FooterSection"
 import Timeline from "@/components/timeline/Timeline"
 import TimelineToggle from "@/components/TimelineToggle"
 import { TimeLineItemType } from "@/lib/types/Timeline"
@@ -53,9 +52,6 @@ const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
               className="relative"
             >
               <Timeline elements={filteredElements} />
-              <div className="w-screen -ml-[calc(50vw-50%)] flex justify-center mt-8">
-                <FooterSection />
-              </div>
             </MotionDiv>
           )}
         </ClientAnimatePresence>
