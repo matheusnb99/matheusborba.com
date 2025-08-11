@@ -59,6 +59,13 @@ const Home: NextPage<Props> = ({ searchParams }) => {
             </div>
           )}
         </section>
+        {/* <section className="h-[80vh] xl:w-[60%]">
+          <TimelineSection
+            highlightedList={highlightedList}
+            filteredElements={filteredElements}
+          />
+        </section> */}
+
         {simpleView && (
           <div className="w-screen flex justify-center mt-8">
             <FooterSection />
