@@ -28,7 +28,7 @@ const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
 
   return (
     <Card
-      className={`flex flex-col justify-between flex-1 rounded-r-lg ${shadowClass}`}
+      className={`flex flex-col justify-between flex-1 rounded-r-lg ${shadowClass} h-full`}
     >
       <CardHeader>
         <CardTitle>{element.title}</CardTitle>

@@ -1,30 +1,28 @@
-"use client"
 import LastProjects from "@/components/LastProjects"
+import { ClientAnimatePresence } from "@/components/motion/ClientAnimatePresence"
+import { ClientLayoutGroup } from "@/components/motion/ClientLayoutGroup"
 import { MotionDiv } from "@/components/motion/MotionDiv"
+import FooterSection from "@/components/sections/FooterSection"
 import Timeline from "@/components/timeline/Timeline"
 import TimelineToggle from "@/components/TimelineToggle"
 import { TimeLineItemType } from "@/lib/types/Timeline"
-import { AnimatePresence, LayoutGroup } from "framer-motion"
-import { useQueryState } from "nuqs"
 import { FunctionComponent } from "react"
 
 type TimelineSectionProps = {
   highlightedList: TimeLineItemType[]
   filteredElements: TimeLineItemType[]
+  view?: string
 }
 
 const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
   highlightedList,
   filteredElements,
+  view = "simple",
 }) => {
-  const [view] = useQueryState("view", {
-    defaultValue: "simple",
-    shallow: false,
-  })
   const simpleView = view === "simple"
 
   return (
-    <section className="h-[80vh] xl:w-[60%]">
+    <>
       <TimelineToggle />
       <h2 className="text-4xl mb-3">
         <span className={`strike ${!simpleView ? "strike-active" : ""}`}>
@@ -33,8 +31,8 @@ const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
         <span>{!simpleView && " My whole career"}</span>
       </h2>
 
-      <LayoutGroup id="timeline-shared">
-        <AnimatePresence mode="popLayout" initial={false}>
+      <ClientLayoutGroup id="timeline-shared">
+        <ClientAnimatePresence mode="popLayout" initial={false}>
           {simpleView ? (
             <MotionDiv
               key="simple"
@@ -55,11 +53,14 @@ const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
               className="relative"
             >
               <Timeline elements={filteredElements} />
+              <div className="w-screen -ml-[calc(50vw-50%)] flex justify-center mt-8">
+                <FooterSection />
+              </div>
             </MotionDiv>
           )}
-        </AnimatePresence>
-      </LayoutGroup>
-    </section>
+        </ClientAnimatePresence>
+      </ClientLayoutGroup>
+    </>
   )
 }
 
