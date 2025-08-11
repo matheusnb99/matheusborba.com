@@ -1,7 +1,8 @@
 "use client"
 /* eslint-disable */
-import { TECH_STACK_ICONS } from "@/lib/constants/timeline"
+import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
 import { StackOptions } from "@/lib/types/Timeline"
+import Link from "next/link"
 import { JSX, useEffect, useState } from "react"
 
 const FerrisWheelSection = ({
@@ -92,6 +93,10 @@ const FerrisWheelSection = ({
           techName in TECH_STACK_ICONS
             ? TECH_STACK_ICONS[techName as keyof typeof TECH_STACK_ICONS]
             : null
+        const techLink =
+          techName in TECH_STACK_LINKS
+            ? TECH_STACK_LINKS[techName as keyof typeof TECH_STACK_LINKS]
+            : "#"
         const iconChildren = extractSVGChildren(iconElement)
         const seat = seatsPos(spokeAngle)
         const controlOffset = radius * 0.78
@@ -116,34 +121,36 @@ const FerrisWheelSection = ({
             />
 
             {/* Seat */}
-            <g
-              className="group cursor-pointer"
-              transform={`translate(${seat.seatX},${seat.seatY})`}
-            >
-              <circle
-                cx={0}
-                cy={0}
-                r={seatRadius}
-                className="fill-gray-200 group-hover:fill-gray-400"
-              />
-              <svg
-                x={-seatRadius / 2}
-                y={-seatRadius / 2}
-                width={seatRadius}
-                height={seatRadius * 0.8}
-                viewBox="0 0 24 24"
+            <Link href={techLink} className="group cursor-pointer">
+              <g
+                className="group cursor-pointer"
+                transform={`translate(${seat.seatX},${seat.seatY})`}
               >
-                {iconChildren}
-              </svg>
-              <text
-                x={0}
-                y={seatRadius * 0.9 - 10}
-                fontSize={seatRadius / 3}
-                textAnchor="middle"
-              >
-                {techName}
-              </text>
-            </g>
+                <circle
+                  cx={0}
+                  cy={0}
+                  r={seatRadius}
+                  className="fill-gray-200 group-hover:fill-gray-400"
+                />
+                <svg
+                  x={-seatRadius / 2}
+                  y={-seatRadius / 2}
+                  width={seatRadius}
+                  height={seatRadius * 0.8}
+                  viewBox="0 0 24 24"
+                >
+                  {iconChildren}
+                </svg>
+                <text
+                  x={0}
+                  y={seatRadius * 0.9 - 10}
+                  fontSize={seatRadius / 3}
+                  textAnchor="middle"
+                >
+                  {techName}
+                </text>
+              </g>
+            </Link>
           </g>
         )
       })}
