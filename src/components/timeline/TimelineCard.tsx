@@ -23,7 +23,7 @@ const categoryShadow: Record<string, string> = {
   default: "shadow-2xl",
 }
 const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
-  const shadowClass = `${categoryShadow[element.category] || categoryShadow.default} hover:shadow-2xl hover:shadow-black/30 transition-shadow`
+  const shadowClass = `${categoryShadow[element.category] || categoryShadow.default}  transition-shadow`
 
   return (
     <Card

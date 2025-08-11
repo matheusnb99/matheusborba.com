@@ -1,4 +1,5 @@
 "use client"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
 import { StackOptions } from "@/lib/types/Timeline"
 import Link from "next/link"
@@ -29,26 +30,24 @@ const StackIcon: FunctionComponent<Props> = ({ item }) => {
   return (
     <div
       className="relative flex items-center justify-center p-2"
-      onMouseEnter={() => {
-        setHovered(true)
-      }}
-      onMouseLeave={() => {
-        setHovered(false)
-      }}
     >
-      {TECH_STACK_ICONS[item as keyof typeof TECH_STACK_ICONS]}
-      {hovered && (
-        <div className="absolute top-0 left-0 z-10 bg-white shadow-lg p-2 rounded-lg text-xs">
+
+
+      <Tooltip>
+        <TooltipTrigger>
           <Link
-            href={TECH_STACK_LINKS[item]}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-blue-600 hover:text-blue-800"
-          >
-            {item}
+              href={TECH_STACK_LINKS[item as keyof typeof TECH_STACK_ICONS]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline" 
+            >
+              {TECH_STACK_ICONS[item as keyof typeof TECH_STACK_ICONS]}
           </Link>
-        </div>
-      )}
+        </TooltipTrigger>
+          <TooltipContent>
+            {item}
+        </TooltipContent>
+      </Tooltip>
     </div>
   )
 }

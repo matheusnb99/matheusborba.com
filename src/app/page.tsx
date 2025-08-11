@@ -35,11 +35,11 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex flex-grow min-h-screen flex-col items-center justify-between  xl:pt-24 lg:mx-28 md:mx-18 mx-5 px-5">
-        <section className="min-h-[80vh] w-full">
+        <section className="min-h-[100vh] w-full">
           <HeaderSection />
         </section>
         <section className="min-h-[80vh] md:ml-0 ml-32">
-          <FerrisWheelSection size={650} stack={stack} />
+          <FerrisWheelSection size={750} stack={stack} />
         </section>
         <section className="min-h-[80vh] xl:w-[60%]">
           <TimelineSection
