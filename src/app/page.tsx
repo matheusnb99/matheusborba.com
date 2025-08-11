@@ -1,6 +1,6 @@
 import LastProjects from "@/components/LastProjects"
+import FerrisWheelSection from "@/components/sections/FerrisWheelSection"
 import HeaderSection from "@/components/sections/HeaderSection"
-import StackSection from "@/components/StackSection"
 import Timeline from "@/components/timeline/Timeline"
 import TimelineToggle from "@/components/TimelineToggle"
 import { timelineElements } from "@/lib/database"
@@ -37,7 +37,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <HeaderSection />
       </section>
       <section className="h-[80vh]">
-        <StackSection stack={stack} />
+        <FerrisWheelSection size={500} stack={stack} />
       </section>
       <section className="h-[80vh] xl:w-[60%]">
         <TimelineToggle />
