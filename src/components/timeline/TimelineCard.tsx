@@ -25,7 +25,7 @@ const categoryShadow: Record<string, string> = {
 }
 
 const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
-  const shadowClass = categoryShadow[element.category] || categoryShadow.default
+  const shadowClass = `${categoryShadow[element.category] || categoryShadow.default} hover:shadow-2xl hover:shadow-black/30 transition-shadow`
 
   return (
     <article className="flex gap-4 pb-10 relative before:absolute before:left-[17px] before:h-full before:w-0.5 before:bg-gray-200">
