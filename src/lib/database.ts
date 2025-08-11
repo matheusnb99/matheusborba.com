@@ -92,9 +92,9 @@ export const timelineElements: TimeLineItemType[] = [
   {
     title: "Fullstack Developer",
     description: "Tournament Management System Backend",
-    company: "OnlyFits",
-    startDate: new Date("jul 2025"),
-    endDate: new Date("aug 2025"),
+    company: "",
+    startDate: new Date("feb 2024"),
+    endDate: new Date("jan 2024"),
     category: "project",
     technologies: ["Go", "Cobra", "GORM", "SQLite", "JWT", "Viper"],
     tasks: [
