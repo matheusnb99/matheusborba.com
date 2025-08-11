@@ -1,9 +1,7 @@
 @todo
 implement shadcn tooltip
-add color schema to timeline
-change modal to shadcn
-add stack
-
+move project to the serverside
+see whats up with 'projectCard' - did I already do that ? wtf
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
