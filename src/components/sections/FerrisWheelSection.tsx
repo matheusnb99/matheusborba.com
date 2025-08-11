@@ -125,8 +125,8 @@ const FerrisWheelSection = ({
               </svg>
               <text
                 x={0}
-                y={seatRadius * 0.9}
-                fontSize={seatRadius / 2}
+                y={seatRadius * 0.9 - 10}
+                fontSize={seatRadius / 3}
                 textAnchor="middle"
               >
                 {techName}

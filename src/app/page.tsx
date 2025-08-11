@@ -36,7 +36,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
       <section className="h-[80vh] w-full">
         <HeaderSection />
       </section>
-      <section className="h-[80vh]">
+      <section className="h-[80vh]  md:ml-0 ml-32">
         <FerrisWheelSection size={650} stack={stack} />
       </section>
       <section className="h-[80vh] xl:w-[60%]">
