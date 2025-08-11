@@ -1,4 +1,4 @@
-import TimeLineItem from "@/components/TimelineItem"
+import TimeLineItem from "@/components/timeline/TimelineItem"
 import { TimeLineItemType } from "@/lib/types/Timeline"
 import { FunctionComponent } from "react"
 

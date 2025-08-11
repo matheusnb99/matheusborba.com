@@ -1,5 +1,5 @@
 import CategoryDropDown from "@/components/CategoryDropDown"
-import TimeLineItem from "@/components/TimelineItem"
+import TimeLineItem from "@/components/timeline/TimelineItem"
 import type { TimeLineItemType } from "@/lib/types/Timeline"
 import { FunctionComponent } from "react"
 
