@@ -1,7 +1,6 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import React from "react"
 import "./globals.css"
-import type { Viewport } from "next"
 
 export const viewport: Viewport = {
   width: "device-width",

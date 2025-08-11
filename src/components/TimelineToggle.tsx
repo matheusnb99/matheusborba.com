@@ -5,7 +5,6 @@ import { FunctionComponent } from "react"
 
 const handleClick = (prevView: string) =>
   prevView === "simple" ? "detailed" : "simple"
-
 const TimelineToggle: FunctionComponent = () => {
   const [view, setView] = useQueryState(
     "view",
@@ -15,10 +14,9 @@ const TimelineToggle: FunctionComponent = () => {
     "category",
     parseAsString.withDefault("all").withOptions({ shallow: false }),
   )
-
-  const handleChange = () => {
-    setView(handleClick)
-    setCategory("all")
+  const handleChange = async () => {
+    await setView(handleClick)
+    await setCategory("all")
   }
 
   return (

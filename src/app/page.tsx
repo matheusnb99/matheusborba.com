@@ -15,7 +15,7 @@ type Props = {
 // eslint-disable-next-line camelcase
 
 const Home: NextPage<Props> = ({ searchParams }) => {
-  const { category, view, projectId } = searchParamsCache.parse(searchParams)
+  const { category, view } = searchParamsCache.parse(searchParams)
   const sortedElements = timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),

@@ -34,4 +34,5 @@ const TimeLineItem: FunctionComponent<TimeLineItemProps> = ({
     </MotionArticle>
   )
 }
+
 export default TimeLineItem

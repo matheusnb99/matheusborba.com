@@ -1,7 +1,8 @@
 "use client"
+/* eslint-disable */
 import { TECH_STACK_ICONS } from "@/lib/constants/timeline"
 import { StackOptions } from "@/lib/types/Timeline"
-import { useEffect, useState } from "react"
+import { JSX, useEffect, useState } from "react"
 
 const FerrisWheelSection = ({
   stack = [] as { technology: StackOptions; count: number }[],
@@ -10,23 +11,23 @@ const FerrisWheelSection = ({
 }) => {
   const cx = size / 2
   const cy = size / 2
-  const radius = size * 0.4 // roue principale
-  const seatRadius = size * 0.075 // rayon d'un siège (diamètre = 15% taille)
-  const spokeCount = stack.length || 1 // on garde 4 "spokes" fixes
-  const spokeLength = radius * 0.6 // longueur du bras sur lequel tournent les sièges
-  const seatOrbitRadius = spokeLength // les sièges tournent autour du bout du spoke sur ce rayon
-
+  const radius = size * 0.4 // Roue principale
+  const seatRadius = size * 0.075 // Rayon d'un siège (diamètre = 15% taille)
+  const spokeCount = stack.length || 1 // On garde 4 "spokes" fixes
+  const spokeLength = radius * 0.6 // Longueur du bras sur lequel tournent les sièges
+  const seatOrbitRadius = spokeLength // Les sièges tournent autour du bout du spoke sur ce rayon
   const angleStep = (2 * Math.PI) / spokeCount
-
-  // stocke la rotation globale (de la roue) et rotation des spokes (avec décalage)
+  // Stocke la rotation globale (de la roue) et rotation des spokes (avec décalage)
   const [rotation, setRotation] = useState(0)
   const [hovered, setHovered] = useState(false)
 
   useEffect(() => {
-    if (!animate) return
+    if (!animate) {
+      return
+    }
+
     let frame: number
     let lastTime = performance.now()
-
     const loop = (time: number) => {
       const delta = time - lastTime
       lastTime = time
@@ -39,7 +40,10 @@ const FerrisWheelSection = ({
     }
 
     frame = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(frame)
+
+    return () => {
+      cancelAnimationFrame(frame)
+    }
   }, [animate, hovered])
 
   // Rotation des 4 spokes, chacune avec un offset de 45° (PI/4)
@@ -59,9 +63,13 @@ const FerrisWheelSection = ({
     }
   }
 
-  function extractSVGChildren(iconElement) {
-    if (iconElement == null) return null
+  function extractSVGChildren(iconElement: JSX.Element | null) {
+    if (iconElement == null) {
+      return null
+    }
+
     const rendered = iconElement.type({})
+
     return rendered.props.children
   }
 
@@ -70,21 +78,21 @@ const FerrisWheelSection = ({
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => {
+        setHovered(true)
+      }}
+      onMouseLeave={() => {
+        setHovered(false)
+      }}
     >
       {spokeRotations.map((spokeAngle, i) => {
         const techName = stack[i]?.technology || ""
         const iconElement = TECH_STACK_ICONS[techName]
         const iconChildren = extractSVGChildren(iconElement)
-
         const seat = seatsPos(spokeAngle)
-
         const controlOffset = radius * 0.78
-
         const cp1x = cx + controlOffset * Math.cos(spokeAngle - Math.PI / 2)
         const cp1y = cy + controlOffset * Math.sin(spokeAngle - Math.PI / 2)
-
         const cp2x =
           seat.seatX + controlOffset * Math.cos(spokeAngle + Math.PI / 2)
         const cp2y =

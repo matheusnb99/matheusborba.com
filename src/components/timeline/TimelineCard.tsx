@@ -22,7 +22,6 @@ const categoryShadow: Record<string, string> = {
   project: "shadow-pink-400/50 shadow-lg",
   default: "shadow-2xl",
 }
-
 const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
   const shadowClass = `${categoryShadow[element.category] || categoryShadow.default} hover:shadow-2xl hover:shadow-black/30 transition-shadow`
 

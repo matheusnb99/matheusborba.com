@@ -2,7 +2,6 @@
 import ProjectFlipCard from "@/components/ProjectFlipCard"
 import { FunctionComponent } from "react"
 
-type CarrerSectionProps = {}
 const fakeProjects = [
   {
     title: "Portfolio Website",
@@ -52,31 +51,32 @@ const fakeProjects = [
     url: "https://hackathon-chatapp.com",
   },
 ]
+const ProjectsSection: FunctionComponent = () => (
+  <>
+    <h2 className="text-3xl font-bold mb-6">My Projects</h2>
+    <div className="grid gap-6 md:grid-cols-2">
+      {fakeProjects.map((project, idx) => {
+        let imageUrl =
+          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
 
-const ProjectsSection: FunctionComponent<CarrerSectionProps> = () => {
-  return (
-    <>
-      <h2 className="text-3xl font-bold mb-6">My Projects</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {fakeProjects.map((project, idx) => {
-          const imageUrl =
-            idx === 0
-              ? "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-              : idx === 1
-                ? "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
-                : "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+        if (idx === 0) {
+          imageUrl =
+            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+        } else if (idx === 1) {
+          imageUrl =
+            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+        }
 
-          return (
-            <ProjectFlipCard
-              key={project.title + project.company}
-              project={project}
-              imageUrl={imageUrl}
-            />
-          )
-        })}
-      </div>
-    </>
-  )
-}
+        return (
+          <ProjectFlipCard
+            key={project.title + project.company}
+            project={project}
+            imageUrl={imageUrl}
+          />
+        )
+      })}
+    </div>
+  </>
+)
 
 export default ProjectsSection

@@ -1,11 +1,26 @@
+import { useState } from "react"
+
+type FakeProjectsType = {
+  title: string
+  company: string
+  startDate: string
+  endDate: string
+  description: string
+  category: string
+  technologies: string[]
+  tasks: string[]
+  url: string
+}
+
 const ProjectFlipCard = ({
   project,
   imageUrl,
 }: {
-  project: (typeof fakeProjects)[0]
+  project: FakeProjectsType
   imageUrl: string
 }) => {
-  const [flipped, setFlipped] = require("react").useState(false)
+  const [flipped, setFlipped] = useState(false)
+
   return (
     <div className="perspective-1000" style={{ perspective: 1000 }}>
       <div
@@ -14,7 +29,7 @@ const ProjectFlipCard = ({
         {/* Front Side */}
         <div
           className="absolute w-full h-full bg-white rounded-lg shadow-md border border-gray-100 flex flex-col items-center justify-center cursor-pointer [backface-visibility:hidden]"
-          onClick={() => setFlipped(true)}
+          onClick={() => { setFlipped(true) }}
           tabIndex={0}
           role="button"
           aria-pressed={flipped}
@@ -34,7 +49,7 @@ const ProjectFlipCard = ({
         {/* Back Side */}
         <div
           className="absolute w-full h-full bg-white rounded-lg shadow-md border border-gray-100 p-6 flex flex-col gap-3 [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-y-auto"
-          onClick={() => setFlipped(false)}
+          onClick={() => { setFlipped(false) }}
           tabIndex={0}
           role="button"
           aria-pressed={!flipped}
@@ -67,23 +82,23 @@ const ProjectFlipCard = ({
               ))}
             </ul>
           </div>
-          {project.tasks && (
-            <div>
-              <span className="font-medium text-gray-700">Tasks:</span>
-              <ul className="list-disc list-inside ml-2 mt-1 text-sm text-gray-600">
-                {project.tasks.map((task, i) => (
-                  <li key={i}>{task}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div>
+            <span className="font-medium text-gray-700">Tasks:</span>
+            <ul className="list-disc list-inside ml-2 mt-1 text-sm text-gray-600">
+              {project.tasks.map((task, i) => (
+                <li key={i}>{task}</li>
+              ))}
+            </ul>
+          </div>
           {project.url && (
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-blue-600 hover:underline text-sm font-medium"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation()
+              }}
             >
               Visit Project
             </a>
