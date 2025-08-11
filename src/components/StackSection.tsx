@@ -40,7 +40,17 @@ const StackSection: FunctionComponent<StackSectionProps> = ({ stack }) => (
                 }}
               >
                 <div className="flex flex-col items-center">
-                  {TECH_STACK_ICONS[tech.technology]}
+                  {Object.hasOwn(TECH_STACK_ICONS, tech.technology) ? (
+                    <>
+                      {
+                        TECH_STACK_ICONS[
+                          tech.technology as keyof typeof TECH_STACK_ICONS
+                        ]
+                      }
+                    </>
+                  ) : (
+                    <span className="text-xs text-red-500">?</span>
+                  )}
                   <p className="text-center text-xs">{tech.technology}</p>
                 </div>
               </div>

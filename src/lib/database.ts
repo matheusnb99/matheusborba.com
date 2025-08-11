@@ -1,6 +1,36 @@
+/* eslint-disable max-lines */
+
 import { TimeLineItemType } from "@/lib/types/Timeline"
 
 export const timelineElements: TimeLineItemType[] = [
+  {
+    title: "Fullstack Developer",
+    description: "Subscription-based fitness social platform",
+    company: "OnlyFits",
+    startDate: new Date("jul 2025"),
+    endDate: new Date("aug 2025"),
+    category: "project",
+    technologies: [
+      "NextJs",
+      "Better Auth",
+      "TypeScript",
+      "Stripe",
+      "Tailwind",
+      "MongoDB",
+    ],
+    tasks: [
+      "User authentication & role management",
+      "Content creation & subscription system",
+      "Real-time chat & social features",
+      "Stripe payment integration",
+      "Multi-language support (FR/EN)",
+      "Responsive UI with shadcn/ui",
+      "MongoDB database design",
+      "API development & state management",
+    ],
+    siteUrl: "",
+    image: "",
+  },
   {
     title: "Apprenticeship as a Fullstack Developer",
     startDate: new Date("oct 2021"),
@@ -57,7 +87,61 @@ export const timelineElements: TimeLineItemType[] = [
       "Tanstack Query",
       "TypeScript",
     ],
+    image: "",
   },
+  {
+    title: "Fullstack Developer",
+    description: "Tournament Management System Backend",
+    company: "OnlyFits",
+    startDate: new Date("jul 2025"),
+    endDate: new Date("aug 2025"),
+    category: "project",
+    technologies: ["Go", "Cobra", "GORM", "SQLite", "JWT", "Viper"],
+    tasks: [
+      "Designed and implemented tournament management system architecture",
+      "Created CLI interface using Cobra framework for tournament operations",
+      "Implemented public and protected routes for API endpoints",
+      "Used Viper for configuration management",
+      "Implemented user authentication with JWT tokens and password hashing",
+      "Developed CRUD operations for tournaments, teams, and matches",
+      "Created interactive command-line prompts for user input",
+      "Set up SQLite database with GORM ORM",
+      "Implemented match scoring and winner determination logic",
+    ],
+    gitUrl: "https://github.com/matheusnb99/sdv-m2-renf-backend-go-cobra",
+    image: "",
+  },
+
+  {
+    title: "Fullstack Developer",
+    description: "Azure Cloud VM Management Platform",
+    company: "",
+    startDate: new Date("jul 2023"),
+    endDate: new Date("jul 2023"),
+    category: "project",
+    technologies: [
+      "NextJs",
+      "TypeScript",
+      "Tailwind",
+      "Prisma",
+      "Azure",
+      "Tanstack Query",
+    ],
+    tasks: [
+      "Built cloud VM management platform using Azure",
+      "Implemented 3-tier user authentication system",
+      "Created automated VM lifecycle management",
+      "Built RESTful API for Azure resources",
+      "Added real-time VM monitoring",
+      "Designed resource creation wizard",
+      "Integrated Azure ARM APIs",
+      "Implemented cost management",
+      "Built responsive Tailwind UI",
+    ],
+    gitUrl: "",
+    image: "",
+  },
+
   {
     title: "Fullstack Developer",
     description: "Japanese products e-commerce website",
@@ -66,6 +150,8 @@ export const timelineElements: TimeLineItemType[] = [
     endDate: new Date("dec 2023"),
     category: "project",
     technologies: ["NextJs", "Next Auth", "TypeScript", "Express", "Tailwind"],
+    siteUrl: "",
+    image: "",
   },
   {
     title: "Bachelor's Degree in Computer Science",
@@ -90,15 +176,6 @@ export const timelineElements: TimeLineItemType[] = [
     company: "Paris Saclay University",
     startDate: new Date("sept 2018"),
     endDate: new Date("sept 2020"),
-    category: "school",
-    technologies: [],
-  },
-  {
-    title: "High School Diploma",
-    description:
-      "Started learning React to build more dynamic web applications.",
-    company: "Lycée Rosa Parks",
-    endDate: new Date("sept 2018"),
     category: "school",
     technologies: [],
   },

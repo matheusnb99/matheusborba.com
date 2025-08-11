@@ -8,6 +8,7 @@ export type StackOptions =
   | "React"
   | "NextJs"
   | "Next Auth"
+  | "Better Auth"
   | "php"
   | "Docker"
   | "Django"
@@ -30,6 +31,14 @@ export type StackOptions =
   | "Github"
   | "Github Actions"
   | "Express"
+  | "Stripe"
+  | "Azure"
+  | "Go"
+  | "GORM"
+  | "SQLite"
+  | "JWT"
+  | "Cobra"
+  | "Viper"
 
 export type TimeLineItemType = {
   title: string
@@ -39,7 +48,9 @@ export type TimeLineItemType = {
   startDate?: Date
   endDate: Date
   category: Category
-  url?: string
+  siteUrl?: string
+  gitUrl?: string
+  image?: string
   technologies: StackOptions[]
 }
 

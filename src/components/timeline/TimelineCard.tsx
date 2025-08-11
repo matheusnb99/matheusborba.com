@@ -45,14 +45,6 @@ const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
             ))}
           </ul>
         )}
-        {element.url && (
-          <a
-            href={element.url}
-            className="text-blue-500 hover:underline mt-2 inline-block"
-          >
-            Learn more
-          </a>
-        )}
       </CardContent>
       <CardFooter>
         {element.technologies.map((tech, index) => (

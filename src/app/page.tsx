@@ -12,7 +12,6 @@ import { NextPage } from "next"
 type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
-// eslint-disable-next-line camelcase
 
 const Home: NextPage<Props> = ({ searchParams }) => {
   const { category, view } = searchParamsCache.parse(searchParams)
@@ -27,7 +26,9 @@ const Home: NextPage<Props> = ({ searchParams }) => {
 
     return element.category === category
   })
-  const highlightedList = sortedElements.slice(0, 2)
+  const lastSchool = sortedElements.find((e) => e.category === "school")
+  const lastWork = sortedElements.find((e) => e.category === "work")
+  const highlightedList = [lastSchool, lastWork].filter(Boolean)
   const simpleView = view === "simple"
   const stack = getStack(filteredElements)
 
@@ -42,7 +43,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         </section>
         <section className="min-h-[80vh] xl:w-[60%]">
           <TimelineSection
-            highlightedList={highlightedList}
+            highlightedList={highlightedList as TimeLineItemType[]}
             filteredElements={filteredElements}
             view={view}
           />

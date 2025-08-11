@@ -1,4 +1,6 @@
+import { BiLogoGoLang } from "react-icons/bi"
 import { FaJava } from "react-icons/fa"
+import { GiCobra } from "react-icons/gi"
 import {
   SiCss3,
   SiDjango,
@@ -19,11 +21,15 @@ import {
   SiPowerautomate,
   SiPrisma,
   SiReact,
+  SiReactquery,
   SiRedis,
   SiSpringboot,
+  SiSqlite,
+  SiStripe,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si"
+import { VscAzure } from "react-icons/vsc"
 
 export const TECH_STACK_ICONS = {
   "JavaScript": <SiJavascript className="w-6 h-6" />,
@@ -48,10 +54,15 @@ export const TECH_STACK_ICONS = {
   "Express": <SiExpress className="w-6 h-6" />,
   "Next Auth": null,
   "Docker": <SiDocker className="w-6 h-6" />,
-  "Tanstack Query": null,
+  "Tanstack Query": <SiReactquery className="w-6 h-6" />,
   "Linear": <SiLinear className="w-6 h-6" />,
   "Power Apps": <SiPowerapps className="w-6 h-6" />,
   "Power Automate": <SiPowerautomate className="w-6 h-6" />,
   "SharePoint": <SiMicrosoftsharepoint className="w-6 h-6" />,
   "AgilePoint": null,
+  "Stripe": <SiStripe className="w-6 h-6" />,
+  "Azure": <VscAzure className="w-6 h-6" />,
+  "Go": <BiLogoGoLang className="w-6 h-6" />,
+  "Cobra": <GiCobra className="w-6 h-6" />,
+  "SQLite": <SiSqlite className="w-6 h-6" />,
 }

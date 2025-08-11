@@ -10,7 +10,7 @@ type Props = {
 const StackIcon: FunctionComponent<Props> = ({ item }) => {
   const [hovered, setHovered] = useState(false)
 
-  if (!TECH_STACK_ICONS[item]) {
+  if (!(item in TECH_STACK_ICONS)) {
     return (
       <span className="px-2 py-2 bg-gray-100 rounded-full text-xs">{item}</span>
     )
@@ -26,7 +26,7 @@ const StackIcon: FunctionComponent<Props> = ({ item }) => {
         setHovered(false)
       }}
     >
-      {TECH_STACK_ICONS[item]}
+      {TECH_STACK_ICONS[item as keyof typeof TECH_STACK_ICONS]}
       {hovered && (
         <div className="absolute top-0 left-0 z-10 bg-white shadow-lg p-2 rounded-lg text-xs">
           {item}

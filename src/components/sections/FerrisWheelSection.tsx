@@ -87,7 +87,11 @@ const FerrisWheelSection = ({
     >
       {spokeRotations.map((spokeAngle, i) => {
         const techName = stack[i]?.technology || ""
-        const iconElement = TECH_STACK_ICONS[techName]
+        // Only use icon if techName is a valid key of TECH_STACK_ICONS
+        const iconElement =
+          techName in TECH_STACK_ICONS
+            ? TECH_STACK_ICONS[techName as keyof typeof TECH_STACK_ICONS]
+            : null
         const iconChildren = extractSVGChildren(iconElement)
         const seat = seatsPos(spokeAngle)
         const controlOffset = radius * 0.78
