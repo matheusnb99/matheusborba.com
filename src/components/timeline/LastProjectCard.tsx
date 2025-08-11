@@ -1,7 +1,7 @@
+import { formatDate } from "@/lib/formatDate"
 import { TimeLineItemType } from "@/lib/types/Timeline"
 import { FunctionComponent } from "react"
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card"
-import { formatDate } from "@/lib/formatDate"
 
 type LastProjectCardProps = {
   element: TimeLineItemType
