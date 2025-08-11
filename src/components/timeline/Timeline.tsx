@@ -8,14 +8,14 @@ type TimelineProps = {
 }
 
 const Timeline: FunctionComponent<TimelineProps> = ({ elements }) => (
-  <>
+  <div className="flex">
     <CategoryDropDown />
     <section className="max-w-2xl mx-auto">
       {elements.map((element, index) => (
         <TimelineCard key={index} element={element} />
       ))}
     </section>
-  </>
+  </div>
 )
 
 export default Timeline

@@ -5,6 +5,7 @@ import { FunctionComponent } from "react"
 
 const handleClick = (prevView: string) =>
   prevView === "simple" ? "detailed" : "simple"
+
 const TimelineToggle: FunctionComponent = () => {
   const [view, setView] = useQueryState(
     "view",

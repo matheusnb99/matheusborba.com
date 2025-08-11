@@ -37,11 +37,11 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <HeaderSection />
       </section>
       <section className="h-[80vh]">
-        <FerrisWheelSection size={500} stack={stack} />
+        <FerrisWheelSection size={650} stack={stack} />
       </section>
       <section className="h-[80vh] xl:w-[60%]">
         <TimelineToggle />
-        <h2 className={`text-4xl`}>
+        <h2 className={`text-4xl mb-3`}>
           <span className={`strike ${!simpleView ? "strike-active" : ""}`}>
             My last experience
           </span>
