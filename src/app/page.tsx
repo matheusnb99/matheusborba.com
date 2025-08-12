@@ -31,6 +31,9 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   const highlightedList = [lastSchool, lastWork].filter(Boolean)
   const simpleView = view === "simple"
   const stack = getStack(filteredElements)
+  const projects = sortedElements.filter(
+    (element) => element.category === "project",
+  )
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -49,7 +52,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
           />
         </section>
         <section className="min-h-[80vh] md:w-[80%]">
-          <CarrerSection />
+          <CarrerSection projects={projects} />
         </section>
 
         {simpleView && (

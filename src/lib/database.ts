@@ -29,7 +29,7 @@ export const timelineElements: TimeLineItemType[] = [
       "API development & state management",
     ],
     siteUrl: "",
-    image: "",
+    image: "projects/onlyfits.png",
   },
   {
     title: "Apprenticeship as a Fullstack Developer",
@@ -87,7 +87,7 @@ export const timelineElements: TimeLineItemType[] = [
       "Tanstack Query",
       "TypeScript",
     ],
-    image: "",
+    image: "projects/implic_action_onb_1.png",
   },
   {
     title: "Fullstack Developer",
@@ -109,7 +109,7 @@ export const timelineElements: TimeLineItemType[] = [
       "Implemented match scoring and winner determination logic",
     ],
     gitUrl: "https://github.com/matheusnb99/sdv-m2-renf-backend-go-cobra",
-    image: "",
+    image: "projects/golang.png",
   },
 
   {
@@ -138,8 +138,8 @@ export const timelineElements: TimeLineItemType[] = [
       "Implemented cost management",
       "Built responsive Tailwind UI",
     ],
-    gitUrl: "",
-    image: "",
+    gitUrl: "https://github.com/matheusnb99/sdv-m1-cloud-azure-sky-spawner",
+    image: "/projects/cloud.png",
   },
 
   {
@@ -151,7 +151,18 @@ export const timelineElements: TimeLineItemType[] = [
     category: "project",
     technologies: ["NextJs", "Next Auth", "TypeScript", "Express", "Tailwind"],
     siteUrl: "",
-    image: "",
+    image: "projects/momotaro.png",
+    tasks: [
+      "Developed a full-featured e-commerce platform for Japanese products",
+      "Implemented user authentication and authorization with Next Auth",
+      "Designed and built responsive UI using Tailwind CSS",
+      "Integrated product catalog and shopping cart functionality",
+      "Created secure checkout and order management system",
+      "Built RESTful APIs with Express for backend operations",
+      "Implemented product search and filtering features",
+      "Set up admin dashboard for product and order management",
+      "Optimized site performance and SEO for better user experience",
+    ],
   },
   {
     title: "Bachelor's Degree in Computer Science",
