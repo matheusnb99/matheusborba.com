@@ -68,11 +68,12 @@ const ProjectsSection: FunctionComponent = () => (
         }
 
         return (
-          <ProjectFlipCard
+          <div
             key={project.title + project.company}
-            project={project}
-            imageUrl={imageUrl}
-          />
+            className="col-span-2 lg:col-span-1"
+          >
+            <ProjectFlipCard project={project} imageUrl={imageUrl} />
+          </div>
         )
       })}
     </div>

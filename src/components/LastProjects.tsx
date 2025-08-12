@@ -11,7 +11,7 @@ const LastProjects: FunctionComponent<LastProjectsProps> = ({ elements }) => (
     {elements.map((element) => (
       <li
         key={element.title}
-        className="flex-1 flex flex-col self-stretch min-h-0 px-4 py-6"
+        className="flex-1 flex flex-col self-stretch min-h-0 px-4 "
       >
         <div className="flex-1 min-h-0 h-full">
           <TimeLineItem element={element} showIcon={false} />

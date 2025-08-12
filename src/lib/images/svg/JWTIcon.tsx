@@ -1,0 +1,64 @@
+import { FunctionComponent } from "react"
+
+const JWTIcon: FunctionComponent = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    id="Jwt-Icon--Streamline-Svg-Logos"
+    className="w-6 h-6"
+  >
+    <desc>Jwt Icon Streamline Icon: https://streamlinehq.com</desc>
+    <path
+      fill="currentColor"
+      d="M13.774325 6.5715 13.750825 0.25h-3.525l0.0235 6.3215 1.7625 2.4205 1.7625 -2.4205Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="M10.2494 17.405025v6.345h3.525v-6.345l-1.7625 -2.4205 -1.7625 2.4205Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="m13.774175 17.405 3.713 5.123 2.8435 -2.068 -3.713 -5.123 -2.8435 -0.9165V17.405Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="M10.2493 6.571475 6.5128 1.4484875l-2.8435 2.0679875 3.713 5.123 2.867 0.9165v-2.9845Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="m7.382275 8.639475 -6.0159975 -1.9505 -1.081 3.337 6.0159975 1.974 2.8435 -0.94 -1.7625 -2.4205Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="m14.855225 12.9165 1.7625 2.4205 6.016 1.9505 1.081 -3.337L17.698725 12l-2.8435 0.9165Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="m17.698725 11.999975 6.016 -1.974 -1.081 -3.337 -6.016 1.9505 -1.7625 2.4205 2.8435 0.94Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="M6.301275 12 0.2852775 13.9505l1.081 3.337 6.0159975 -1.9505 1.7625 -2.4205L6.301275 12Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="M7.3823 15.337 3.6693 20.46l2.8435 2.068 3.7365 -5.123V14.4205l-2.867 0.9165Z"
+      strokeWidth="0.25"
+    ></path>
+    <path
+      fill="currentColor"
+      d="m16.617675 8.639475 3.713 -5.123 -2.8435 -2.0679875 -3.713 5.1229875v2.9845l2.8435 -0.9165Z"
+      strokeWidth="0.25"
+    ></path>
+  </svg>
+)
+
+export default JWTIcon

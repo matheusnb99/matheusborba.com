@@ -1,3 +1,7 @@
+import BetterAuthIcon from "@/lib/images/svg/BetterAuthIcon"
+import JWTIcon from "@/lib/images/svg/JWTIcon"
+import NextAuthIcon from "@/lib/images/svg/NextAuthIcon"
+import ViperIcon from "@/lib/images/svg/ViperIcon"
 import { BiLogoGoLang } from "react-icons/bi"
 import { FaJava } from "react-icons/fa"
 import { GiCobra } from "react-icons/gi"
@@ -52,7 +56,7 @@ export const TECH_STACK_ICONS = {
   "Github": <SiGithub className="w-6 h-6" />,
   "Github Actions": <SiGithubactions className="w-6 h-6" />,
   "Express": <SiExpress className="w-6 h-6" />,
-  "Next Auth": null,
+  "Next Auth": <NextAuthIcon />,
   "Docker": <SiDocker className="w-6 h-6" />,
   "Tanstack Query": <SiReactquery className="w-6 h-6" />,
   "Linear": <SiLinear className="w-6 h-6" />,
@@ -65,10 +69,10 @@ export const TECH_STACK_ICONS = {
   "Go": <BiLogoGoLang className="w-6 h-6" />,
   "Cobra": <GiCobra className="w-6 h-6" />,
   "SQLite": <SiSqlite className="w-6 h-6" />,
-  "Better Auth": null,
-  "Viper": null,
+  "Better Auth": <BetterAuthIcon />,
+  "Viper": <ViperIcon />,
   "GORM": null,
-  "JWT": null,
+  "JWT": <JWTIcon />,
 }
 
 export const TECH_STACK_LINKS = {
