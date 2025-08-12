@@ -44,14 +44,14 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <section className="min-h-[80vh] md:ml-0 ml-32">
           <FerrisWheelSection size={750} stack={stack} />
         </section>
-        <section className="min-h-[80vh] mb-10 w-full xl:w-[80%]">
+        <section className="min-h-[80vh] mb-10 w-full lg:w-[80%]">
           <TimelineSection
             highlightedList={highlightedList as TimeLineItemType[]}
             filteredElements={filteredElements}
             view={view}
           />
         </section>
-        <section className="min-h-[80vh] md:w-[80%]">
+        <section className="min-h-[80vh] w-full lg:w-[80%]">
           <CarrerSection projects={projects} />
         </section>
 

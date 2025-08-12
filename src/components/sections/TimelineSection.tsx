@@ -21,14 +21,16 @@ const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
   const simpleView = view === "simple"
 
   return (
-    <>
-      <TimelineToggle />
-      <h2 className="text-4xl mb-3">
-        <span className={`strike ${!simpleView ? "strike-active" : ""}`}>
-          My last experience
-        </span>
-        <span>{!simpleView && " My whole career"}</span>
-      </h2>
+    <div className="flex flex-col">
+      <div className="w-full">
+        <TimelineToggle />
+        <h2 className="text-4xl mb-3">
+          <span className={`strike ${!simpleView ? "strike-active" : ""}`}>
+            My last experience
+          </span>
+          <span>{!simpleView && " My whole career"}</span>
+        </h2>
+      </div>
 
       <ClientLayoutGroup id="timeline-shared">
         <ClientAnimatePresence mode="popLayout" initial={false}>
@@ -56,7 +58,7 @@ const TimelineSection: FunctionComponent<TimelineSectionProps> = ({
           )}
         </ClientAnimatePresence>
       </ClientLayoutGroup>
-    </>
+    </div>
   )
 }
 

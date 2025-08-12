@@ -8,9 +8,9 @@ type TimelineProps = {
 }
 
 const Timeline: FunctionComponent<TimelineProps> = ({ elements }) => (
-  <div className="flex w-full">
+  <div className="flex w-full flex-col md:flex-row">
     <CategoryDropDown />
-    <section className="max-w-2xl mx-auto">
+    <section className="max-w-2xl mx-auto mt-5">
       {elements.map((element, index) => (
         <TimeLineItem key={index} element={element} />
       ))}
