@@ -21,7 +21,7 @@ const TimelineToggle: FunctionComponent = () => {
 
   return (
     <button
-      className="text-sm text-gray-500 hover:text-gray-700 underline"
+      className="text-sm text-gray-500 hover:text-gray-700 un"
       onClick={handleChange}
     >
       {view === "simple" ? "See detailed timeline" : "See simple timeline"}
