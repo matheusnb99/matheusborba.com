@@ -6,7 +6,7 @@ import { SiGithub, SiLinkedin } from "react-icons/si"
 import { TbFileCv } from "react-icons/tb"
 
 const HeaderSection: FunctionComponent = () => (
-  <header className="flex mt-[20%] ml-28">
+  <header className="flex mt-[20%] xl:ml-28">
     <div className="flex flex-col">
       <div className="w-1/2">
         <h1 className="lg:text-6xl  text-3xl font-bold mb-10 ">
