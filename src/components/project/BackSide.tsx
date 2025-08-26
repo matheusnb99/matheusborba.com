@@ -1,3 +1,4 @@
+import { formatDate } from "@/lib/formatDate"
 import { TimeLineItemType } from "@/lib/types/Timeline"
 import Link from "next/link"
 import { FunctionComponent } from "react"
@@ -32,17 +33,7 @@ const BackSide: FunctionComponent<BackSideProps> = (props) => {
         <span>{project.company}</span>
         <span className="mx-2">|</span>
         <span>
-          {project.startDate
-            ? new Date(project.startDate).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-              })
-            : "N/A"}
-          -
-          {new Date(project.endDate).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-          })}
+          {formatDate(project.startDate)} - {formatDate(project.endDate)}
         </span>
       </div>
       <p className="mb-2">{project.description}</p>
