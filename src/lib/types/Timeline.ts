@@ -41,6 +41,7 @@ export type StackOptions =
   | "Viper"
 
 export type TimeLineItemType = {
+  id: number
   title: string
   description: string
   tasks?: string[]

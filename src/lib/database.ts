@@ -4,6 +4,7 @@ import { TimeLineItemType } from "@/lib/types/Timeline"
 
 export const timelineElements: TimeLineItemType[] = [
   {
+    id: 8,
     title: "Fullstack Developer",
     description: "Subscription-based fitness social platform",
     company: "OnlyFits",
@@ -32,13 +33,13 @@ export const timelineElements: TimeLineItemType[] = [
     image: "projects/onlyfits.png",
   },
   {
+    id: 7,
     title: "Apprenticeship as a Fullstack Developer",
     startDate: new Date("oct 2021"),
     endDate: new Date("30 sept 2024"),
     description: "Internal procedures automation",
     tasks: [
       "Requirements gathering and analysis to understand the business needs\n\r",
-      "Identify key possible missions \n\r",
       "Create, build and maintain 11 internal applications to automate processes and improve operational efficiency\n\r",
       "Organized and led presentation meetings \n\r",
       "Agile development methodology",
@@ -54,6 +55,7 @@ export const timelineElements: TimeLineItemType[] = [
     ],
   },
   {
+    id: 6,
     title: "Masters's Degree in Computer Science",
     startDate: new Date("sept 2022"),
     endDate: new Date("sept 2024"),
@@ -64,6 +66,7 @@ export const timelineElements: TimeLineItemType[] = [
     technologies: ["JavaScript"],
   },
   {
+    id: 5,
     title: "Lead Developer",
     description:
       "Web application aimed at the professional retraining of military personnel",
@@ -90,6 +93,7 @@ export const timelineElements: TimeLineItemType[] = [
     image: "projects/implic_action_onb_1.png",
   },
   {
+    id: 4,
     title: "Fullstack Developer",
     description: "Tournament Management System Backend",
     company: "",
@@ -113,6 +117,7 @@ export const timelineElements: TimeLineItemType[] = [
   },
 
   {
+    id: 3,
     title: "Fullstack Developer",
     description: "Azure Cloud VM Management Platform",
     company: "",
@@ -143,6 +148,7 @@ export const timelineElements: TimeLineItemType[] = [
   },
 
   {
+    id: 2,
     title: "Fullstack Developer",
     description: "Japanese products e-commerce website",
     company: "Momotaro",
@@ -165,6 +171,7 @@ export const timelineElements: TimeLineItemType[] = [
     ],
   },
   {
+    id: 1,
     title: "Bachelor's Degree in Computer Science",
     startDate: new Date("sept 2021"),
     endDate: new Date("sept 2022"),
@@ -181,6 +188,7 @@ export const timelineElements: TimeLineItemType[] = [
     ],
   },
   {
+    id: 0,
     title: "DUT Informatique (Two-year technical degree in computer science)",
     description:
       "First year of my DUT in computer science, where I learned the basics of programming.",
