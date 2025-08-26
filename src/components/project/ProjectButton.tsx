@@ -22,7 +22,6 @@ const variants = {
     icon: <FaExternalLinkAlt className="mx-2" />,
   },
 }
-
 const ProjectButton: FunctionComponent<ProjectButtonProps> = ({
   url,
   type,
