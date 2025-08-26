@@ -13,23 +13,28 @@ type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
 
-const Home: NextPage<Props> = ({ searchParams }) => {
-  const { category, view } = searchParamsCache.parse(searchParams)
-  const sortedElements = timelineElements.sort(
+const getSortedTimeline = () =>
+  timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
   )
-  const filteredElements = sortedElements.filter((element) => {
-    if (!category || category === "all") {
-      return true
-    }
+const filterCallback = (element: TimeLineItemType, category: string) => {
+  if (!category || category === "all") {
+    return true
+  }
 
-    return element.category === category
-  })
+  return element.category === category
+}
+
+const Home: NextPage<Props> = ({ searchParams }) => {
+  const { category, view } = searchParamsCache.parse(searchParams)
+  const sortedElements = getSortedTimeline()
+  const filteredElements = sortedElements.filter((element) =>
+    filterCallback(element, category),
+  )
   const lastSchool = sortedElements.find((e) => e.category === "school")
   const lastWork = sortedElements.find((e) => e.category === "work")
   const highlightedList = [lastSchool, lastWork].filter(Boolean)
-  const simpleView = view === "simple"
   const stack = getStack(filteredElements)
   const projects = sortedElements.filter(
     (element) => element.category === "project",
@@ -55,16 +60,9 @@ const Home: NextPage<Props> = ({ searchParams }) => {
           <CarrerSection projects={projects} />
         </section>
 
-        {simpleView && (
-          <div className="w-screen flex justify-center mt-8">
-            <FooterSection />
-          </div>
-        )}
-        {!simpleView && (
-          <div className="w-screen -ml-[calc(50vw-50%)] flex justify-center mt-8">
-            <FooterSection />
-          </div>
-        )}
+        <div className="w-screen flex justify-center mt-8 ">
+          <FooterSection />
+        </div>
       </main>
     </div>
   )
