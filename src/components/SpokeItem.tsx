@@ -1,3 +1,4 @@
+import Seat from "@/components/Seat"
 import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
 import extractSVG from "@/lib/extractSVG"
 import Link from "next/link"
@@ -68,8 +69,7 @@ const SpokeItem: FunctionComponent<SpokeItemProps> = ({
   const cp2x = seat.seatX + controlOffset * Math.cos(spokeAngle + Math.PI / 2)
   const cp2y = seat.seatY + controlOffset * Math.sin(spokeAngle + Math.PI / 2)
 
-  
-return (
+  return (
     <g>
       {/* S-curve spoke to seat */}
       <path
@@ -88,29 +88,7 @@ return (
           className="group cursor-pointer"
           transform={`translate(${seat.seatX},${seat.seatY})`}
         >
-          <circle
-            cx={0}
-            cy={0}
-            r={seatRadius}
-            className="fill-gray-200 group-hover:fill-gray-400"
-          />
-          <svg
-            x={-seatRadius / 2}
-            y={-seatRadius / 2 - 5}
-            width={seatRadius}
-            height={seatRadius * 0.8}
-            viewBox="0 0 24 24"
-          >
-            {iconChildren}
-          </svg>
-          <text
-            x={0}
-            y={seatRadius * 0.9 - 20}
-            fontSize={seatRadius / 4}
-            textAnchor="middle"
-          >
-            {techName}
-          </text>
+          <Seat radius={seatRadius} techName={techName} icon={iconChildren} />
         </g>
       </Link>
     </g>
