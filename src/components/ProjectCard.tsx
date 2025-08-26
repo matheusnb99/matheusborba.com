@@ -1,8 +1,8 @@
 import { ProjectType } from "@/lib/types/Timeline"
-import { FunctionComponent } from "react"
-import StackIcon from "./StackIcon"
 import Image from "next/image"
-import ProjectButton from "./ProjectButton"
+import { FunctionComponent } from "react"
+import ProjectButton from "./project/ProjectButton"
+import StackIcon from "./StackIcon"
 
 type ProjectCardProps = {
   project: ProjectType

@@ -1,6 +1,6 @@
+import ProjectButton from "@/components/project/ProjectButton"
 import { formatDate } from "@/lib/formatDate"
 import { TimeLineItemType } from "@/lib/types/Timeline"
-import Link from "next/link"
 import { FunctionComponent } from "react"
 
 type BackSideProps = {
@@ -63,31 +63,8 @@ const BackSide: FunctionComponent<BackSideProps> = (props) => {
         </ul>
       </div>
       <div className="flex gap-3 mt-2">
-        {project.gitUrl ? (
-          <Link
-            href={project.gitUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm font-medium"
-          >
-            {/* <SiGithub className="w-6 h-6 pr-2" /> */}
-            GitHub
-          </Link>
-        ) : (
-          <span className="inline-flex items-center px-3 py-1 bg-gray-300 text-gray-500 rounded text-sm font-medium italic cursor-not-allowed">
-            Private Repo
-          </span>
-        )}
-        {project.siteUrl && (
-          <Link
-            href={project.siteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-green-600 hover:underline text-sm font-medium"
-          >
-            Demo
-          </Link>
-        )}
+        <ProjectButton type="github" url={project.gitUrl} />
+        <ProjectButton type="demo" url={project.siteUrl} />
       </div>
       <button
         className="mt-4 px-3 py-1 bg-gray-200 rounded text-xs text-gray-700 hover:bg-gray-300 transition"
