@@ -1,9 +1,9 @@
 "use client"
-/* eslint-disable */
 import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
+import extractSVG from "@/lib/extractSVG"
 import { StackOptions } from "@/lib/types/Timeline"
 import Link from "next/link"
-import { JSX, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 const FerrisWheelSection = ({
   stack = [] as { technology: StackOptions; count: number }[],
@@ -12,13 +12,12 @@ const FerrisWheelSection = ({
 }) => {
   const cx = size / 2
   const cy = size / 2
-  const radius = size * 0.4 // Roue principale
-  const seatRadius = size * 0.075 // Rayon d'un siège (diamètre = 15% taille)
-  const spokeCount = stack.length || 1 // On garde 4 "spokes" fixes
-  const spokeLength = radius * 0.6 // Longueur du bras sur lequel tournent les sièges
-  const seatOrbitRadius = spokeLength // Les sièges tournent autour du bout du spoke sur ce rayon
+  const radius = size * 0.4
+  const seatRadius = size * 0.075
+  const spokeCount = stack.length || 1
+  const spokeLength = radius * 0.6
+  const seatOrbitRadius = spokeLength
   const angleStep = (2 * Math.PI) / spokeCount
-  // Stocke la rotation globale (de la roue) et rotation des spokes (avec décalage)
   const [rotation, setRotation] = useState(0)
   const [hovered, setHovered] = useState(false)
 
@@ -27,7 +26,7 @@ const FerrisWheelSection = ({
       return
     }
 
-    let frame: number
+    let frame: number = 0
     let lastTime = performance.now()
     const loop = (time: number) => {
       const delta = time - lastTime
@@ -41,6 +40,8 @@ const FerrisWheelSection = ({
     }
 
     frame = requestAnimationFrame(loop)
+
+    /* eslint-disable consistent-return*/
 
     return () => {
       cancelAnimationFrame(frame)
@@ -64,16 +65,6 @@ const FerrisWheelSection = ({
     }
   }
 
-  function extractSVGChildren(iconElement: JSX.Element | null) {
-    if (iconElement == null) {
-      return null
-    }
-
-    const rendered = iconElement.type({})
-
-    return rendered.props.children
-  }
-
   return (
     <svg
       width={size}
@@ -87,8 +78,7 @@ const FerrisWheelSection = ({
       }}
     >
       {spokeRotations.map((spokeAngle, i) => {
-        const techName = stack[i]?.technology || ""
-        // Only use icon if techName is a valid key of TECH_STACK_ICONS
+        const techName = stack[i].technology
         const iconElement =
           techName in TECH_STACK_ICONS
             ? TECH_STACK_ICONS[techName as keyof typeof TECH_STACK_ICONS]
@@ -97,7 +87,7 @@ const FerrisWheelSection = ({
           techName in TECH_STACK_LINKS
             ? TECH_STACK_LINKS[techName as keyof typeof TECH_STACK_LINKS]
             : "#"
-        const iconChildren = extractSVGChildren(iconElement)
+        const iconChildren = extractSVG(iconElement)
         const seat = seatsPos(spokeAngle)
         const controlOffset = radius * 0.78
         const cp1x = cx + controlOffset * Math.cos(spokeAngle - Math.PI / 2)
