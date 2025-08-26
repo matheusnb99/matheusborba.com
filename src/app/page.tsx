@@ -25,7 +25,6 @@ const filterCallback = (element: TimeLineItemType, category: string) => {
 
   return element.category === category
 }
-
 const Home: NextPage<Props> = ({ searchParams }) => {
   const { category, view } = searchParamsCache.parse(searchParams)
   const sortedElements = getSortedTimeline()
