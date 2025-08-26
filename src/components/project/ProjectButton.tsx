@@ -7,19 +7,6 @@ type ProjectButtonProps = {
   type: "github" | "demo"
 }
 
-const texts = {
-  github: "Github",
-  demo: "View demo",
-}
-
-const noUrl = {
-  github: "Private Repo",
-  demo: "",
-}
-const icons = {
-  github: <FaGithub className="mx-2" />,
-  demo: <FaExternalLinkAlt className="mx-2" />,
-}
 const variants = {
   github: {
     text: "Github",
