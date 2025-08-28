@@ -2,8 +2,7 @@ import Seat from "@/components/Seat"
 import { usePulse } from "@/hooks/usePulse"
 import { useSeatPosition } from "@/hooks/useSeatPosition"
 import { useSpokePath } from "@/hooks/useSpokePath"
-import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
-import extractSVG from "@/lib/extractSVG"
+import { TECH_STACK_LINKS } from "@/lib/constants/timeline"
 import Link from "next/link"
 import { FunctionComponent } from "react"
 
@@ -29,15 +28,10 @@ const SpokeItem: FunctionComponent<SpokeItemProps> = ({
   seatOrbitRadius,
   hovered,
 }) => {
-  const iconElement =
-    techName in TECH_STACK_ICONS
-      ? TECH_STACK_ICONS[techName as keyof typeof TECH_STACK_ICONS]
-      : null
   const techLink =
     techName in TECH_STACK_LINKS
       ? TECH_STACK_LINKS[techName as keyof typeof TECH_STACK_LINKS]
       : "#"
-  const iconChildren = extractSVG(iconElement)
   const seat = useSeatPosition({
     angle: spokeAngle,
     cx,
@@ -81,7 +75,7 @@ const SpokeItem: FunctionComponent<SpokeItemProps> = ({
 
       <Link href={techLink} className="group cursor-pointer">
         <g transform={`translate(${seat.seatX},${seat.seatY})`}>
-          <Seat radius={seatRadius} techName={techName} icon={iconChildren} />
+          <Seat radius={seatRadius} techName={techName} />
         </g>
       </Link>
     </g>

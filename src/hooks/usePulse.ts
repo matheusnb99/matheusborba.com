@@ -14,8 +14,7 @@ export const usePulse = (hovered: boolean, delay = 50) => {
     if (!hovered) {
       setActive(false)
 
-      
-return void 0
+      return void 0
     }
 
     setActive(false)
@@ -23,7 +22,9 @@ return void 0
       setActive(true)
     }, delay)
 
-    return () => { clearTimeout(timer) }
+    return () => {
+      clearTimeout(timer)
+    }
   }, [hovered, delay])
 
   return { active, pathRef, pathLength }
