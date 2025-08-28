@@ -13,11 +13,12 @@ type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
 
-const getSortedTimeline = () =>
+export const getSortedTimeline = () =>
   timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
   )
+
 const filterCallback = (element: TimeLineItemType, category: string) => {
   if (!category || category === "all") {
     return true
@@ -40,7 +41,7 @@ const Home: NextPage<Props> = ({ searchParams }) => {
   )
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" id="bgHero">
       <main className="flex flex-grow min-h-screen flex-col items-center justify-between  xl:pt-24 lg:mx-28 md:mx-18 mx-5 px-5">
         <section className="lg:min-h-[100vh] w-full">
           <HeaderSection />

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+#bgHero {
   background: url("../../public/background.svg") no-repeat right top;
   background-size: 90%;
 }
