@@ -14,7 +14,7 @@ const LastProjects: FunctionComponent<LastProjectsProps> = ({ elements }) => (
         className="flex-1 flex flex-col self-stretch min-h-0 px-4 "
       >
         <div className="flex-1 min-h-0 h-full">
-          <TimeLineItem element={element} showIcon={false} />
+          <TimeLineItem element={element} />
         </div>
       </li>
     ))}

@@ -18,7 +18,6 @@ const getSortedTimeline = () =>
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
   )
-
 const filterCallback = (element: TimeLineItemType, category: string) => {
   if (!category || category === "all") {
     return true

@@ -8,7 +8,6 @@ const getSortedTimeline = () =>
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
   )
-
 const e = getSortedTimeline()
 const meta = {
   title: "Timeline",
