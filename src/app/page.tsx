@@ -13,7 +13,7 @@ type Props = {
   searchParams: Record<string, string | string[] | undefined>
 }
 
-export const getSortedTimeline = () =>
+const getSortedTimeline = () =>
   timelineElements.sort(
     (a: TimeLineItemType, b: TimeLineItemType) =>
       new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),

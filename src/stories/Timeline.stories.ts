@@ -1,6 +1,13 @@
-import { getSortedTimeline } from "@/app/page"
 import Timeline from "@/components/timeline/Timeline"
+import { timelineElements } from "@/lib/database"
+import { TimeLineItemType } from "@/lib/types/Timeline"
 import { Meta, StoryObj } from "@storybook/nextjs-vite"
+
+const getSortedTimeline = () =>
+  timelineElements.sort(
+    (a: TimeLineItemType, b: TimeLineItemType) =>
+      new Date(b.endDate).getTime() - new Date(a.endDate).getTime(),
+  )
 
 const e = getSortedTimeline()
 const meta = {
