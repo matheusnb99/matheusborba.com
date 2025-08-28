@@ -1,7 +1,8 @@
 "use client"
 import SpokeItem from "@/components/SpokeItem"
+import { useRotationAnimation } from "@/hooks/useRotationAnimation"
 import { StackOptions } from "@/lib/types/Timeline"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const FerrisWheelSection = ({
   stack = [] as { technology: StackOptions; count: number }[],
@@ -16,36 +17,8 @@ const FerrisWheelSection = ({
   const spokeLength = radius * 0.6
   const seatOrbitRadius = spokeLength
   const angleStep = (2 * Math.PI) / spokeCount
-  const [rotation, setRotation] = useState(0)
   const [hovered, setHovered] = useState(false)
-
-  useEffect(() => {
-    if (!animate) {
-      return
-    }
-
-    let frame: number = 0
-    let lastTime = performance.now()
-    const loop = (time: number) => {
-      const delta = time - lastTime
-      lastTime = time
-
-      if (!hovered) {
-        setRotation((prev) => prev + (delta / 1000) * ((10 * Math.PI) / 180))
-      }
-
-      frame = requestAnimationFrame(loop)
-    }
-
-    frame = requestAnimationFrame(loop)
-
-    /* eslint-disable consistent-return*/
-
-    return () => {
-      cancelAnimationFrame(frame)
-    }
-  }, [animate, hovered])
-
+  const rotation = useRotationAnimation(animate, hovered)
   const spokeRotations = Array(spokeCount)
     .fill(0)
     .map((_, idx) => rotation + idx * angleStep)
