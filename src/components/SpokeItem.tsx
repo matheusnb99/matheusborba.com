@@ -1,4 +1,5 @@
 import Seat from "@/components/Seat"
+import { usePulse } from "@/hooks/usePulse"
 import { useSeatPosition } from "@/hooks/useSeatPosition"
 import { useSpokePath } from "@/hooks/useSpokePath"
 import { TECH_STACK_ICONS, TECH_STACK_LINKS } from "@/lib/constants/timeline"
@@ -15,6 +16,7 @@ type SpokeItemProps = {
   cy: number
   spokeLength: number
   seatOrbitRadius: number
+  hovered: boolean
 }
 const SpokeItem: FunctionComponent<SpokeItemProps> = ({
   spokeAngle,
@@ -25,6 +27,7 @@ const SpokeItem: FunctionComponent<SpokeItemProps> = ({
   radius,
   spokeLength,
   seatOrbitRadius,
+  hovered,
 }) => {
   const iconElement =
     techName in TECH_STACK_ICONS
@@ -50,18 +53,34 @@ const SpokeItem: FunctionComponent<SpokeItemProps> = ({
     seatY: seat.seatY,
     radius,
   })
+  const { active, pathRef, pathLength } = usePulse(hovered, 50)
 
   return (
     <g>
-      {/* S-curve spoke to seat */}
-      <path d={path} stroke="#0284c7" strokeWidth={4} fill="none" />
+      <path d={path} stroke="#026597" strokeWidth={4} fill="none" />
+      <path
+        ref={pathRef}
+        d={path}
+        stroke="url(#pulseGradient)"
+        strokeWidth={4}
+        fill="none"
+        strokeDasharray={pathLength}
+        strokeDashoffset={hovered ? 0 : pathLength}
+        style={{ transition: "stroke-dashoffset 0.6s ease-in-out" }}
+      />
+      <path
+        ref={pathRef}
+        d={path}
+        stroke="#026597"
+        strokeWidth={4}
+        fill="none"
+        strokeDasharray={pathLength}
+        strokeDashoffset={active ? 0 : pathLength}
+        style={{ transition: "stroke-dashoffset 0.6s ease-in-out" }}
+      />
 
-      {/* Seat */}
       <Link href={techLink} className="group cursor-pointer">
-        <g
-          className="group cursor-pointer"
-          transform={`translate(${seat.seatX},${seat.seatY})`}
-        >
+        <g transform={`translate(${seat.seatX},${seat.seatY})`}>
           <Seat radius={seatRadius} techName={techName} icon={iconChildren} />
         </g>
       </Link>
