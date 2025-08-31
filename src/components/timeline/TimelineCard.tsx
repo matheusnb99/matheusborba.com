@@ -13,21 +13,30 @@ import {
 
 type TimelineCardProps = {
   element: TimeLineItemType
+  borderDirection?: "right" | "left"
 }
 
 // Map category to shadow class
 const categoryShadow: Record<string, string> = {
-  work: "shadow-yellow-400/50 shadow-lg",
-  school: "shadow-blue-400/50 shadow-lg",
-  project: "shadow-pink-400/50 shadow-lg",
+  work: "shadow-yellow-400/50 shadow-lg ",
+  school: "shadow-blue-400/50 shadow-lg ",
+  project: "shadow-pink-400/50 shadow-lg ",
   default: "shadow-2xl",
 }
-const TimelineCard: FunctionComponent<TimelineCardProps> = ({ element }) => {
+const direction: Record<string, string> = {
+  right: "rounded-r-lg",
+  left: "rounded-l-lg",
+  default: "rounded-lg",
+}
+const TimelineCard: FunctionComponent<TimelineCardProps> = ({
+  element,
+  borderDirection = "default",
+}) => {
   const shadowClass = `${categoryShadow[element.category] || categoryShadow.default}  transition-shadow`
 
   return (
     <Card
-      className={`flex flex-col justify-between flex-1 rounded-r-lg ${shadowClass} h-full`}
+      className={`flex flex-col rounded- justify-between flex-1  ${direction[borderDirection]} ${shadowClass} h-full border-slate-300 `}
     >
       <CardHeader>
         <CardTitle>{element.title}</CardTitle>

@@ -11,7 +11,6 @@ const SpringAnimation: FunctionComponent<TimeLineItemProps> = ({
 }) => (
   <MotionArticle
     layout
-    className={`relative  mb-6`}
     transition={{ layout: { type: "spring", stiffness: 400, damping: 40 } }}
   >
     <MotionDiv layout>{children}</MotionDiv>
