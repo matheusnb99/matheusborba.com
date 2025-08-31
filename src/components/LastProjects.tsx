@@ -1,4 +1,4 @@
-import TimeLineItem from "@/components/timeline/TimelineItem"
+import TimelineCard from "@/components/timeline/TimelineCard"
 import { TimeLineItemType } from "@/lib/types/Timeline"
 import { FunctionComponent } from "react"
 
@@ -11,10 +11,10 @@ const LastProjects: FunctionComponent<LastProjectsProps> = ({ elements }) => (
     {elements.map((element) => (
       <li
         key={element.id}
-        className="flex-1 flex flex-col self-stretch min-h-0 px-4 "
+        className="flex-1 flex flex-col self-stretch min-h-0 px-4 lg:w-1/3"
       >
-        <div className="flex-1 min-h-0 h-full">
-          <TimeLineItem element={element} />
+        <div className="flex-1 min-h-0 ">
+          <TimelineCard element={element} />
         </div>
       </li>
     ))}

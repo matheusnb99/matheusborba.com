@@ -58,7 +58,6 @@ const Home: NextPage<Props> = ({ searchParams }) => {
         <section className="min-h-[80vh] w-full lg:w-[80%]">
           <CarrerSection projects={projects} />
         </section>
-
         <div className="w-screen flex justify-center mt-8 ">
           <FooterSection />
         </div>
