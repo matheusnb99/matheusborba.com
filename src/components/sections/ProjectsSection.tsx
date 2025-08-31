@@ -13,7 +13,11 @@ const ProjectsSection: FunctionComponent<ProjectsSectionProps> = ({
     <h2 className="text-3xl font-bold mb-6">My Projects</h2>
     <div className="grid gap-6 md:grid-cols-2 ">
       {projects.map((project) => (
-        <div key={project.id} className="col-span-2 lg:col-span-1 ">
+        <div
+          key={project.id}
+          id={`projectId=${project.id}`}
+          className="col-span-2 lg:col-span-1 "
+        >
           <ProjectFlipCard project={project} />
         </div>
       ))}

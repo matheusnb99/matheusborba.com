@@ -1,5 +1,6 @@
 import { formatDate } from "@/lib/formatDate"
 import { TimeLineItemType } from "@/lib/types/Timeline"
+import Link from "next/link"
 import { FunctionComponent } from "react"
 import StackIcon from "../StackIcon"
 import {
@@ -49,9 +50,19 @@ const TimelineCard: FunctionComponent<TimelineCardProps> = ({
         <p className="mt-2 font-semibold">{element.description}</p>
         {element.tasks && (
           <ul className="list-disc list-inside mt-2">
-            {element.tasks.map((task, index) => (
+            {element.tasks.slice(0, 3).map((task, index) => (
               <li key={index}>{task}</li>
             ))}
+            {element.tasks.length > 3 && (
+              <div className="flex justify-center mt-2">
+                <Link
+                  href={`#projectId=${element.id}`}
+                  className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-sm font-medium"
+                >
+                  See more
+                </Link>
+              </div>
+            )}
           </ul>
         )}
       </CardContent>
