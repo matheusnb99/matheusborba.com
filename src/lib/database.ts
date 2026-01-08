@@ -12,6 +12,7 @@ export const timelineElements: TimeLineItemType[] = [
     startDate: new Date("sep 2025"),
     endDate: new Date("dec 2025"),
     category: "project",
+    image: "projects/proxmox1.png",
     technologies: [
       "Proxmox",
       "OPNsense",

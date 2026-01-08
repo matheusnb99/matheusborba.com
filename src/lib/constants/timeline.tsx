@@ -3,7 +3,7 @@ import JWTIcon from "@/lib/images/svg/JWTIcon"
 import NextAuthIcon from "@/lib/images/svg/NextAuthIcon"
 import ViperIcon from "@/lib/images/svg/ViperIcon"
 import { StackOptions } from "@/lib/types/Timeline"
-import { ReactNode } from "react"
+import { JSX } from "react"
 import { BiLogoGoLang } from "react-icons/bi"
 import { FaJava } from "react-icons/fa"
 import { GiCobra } from "react-icons/gi"
@@ -44,7 +44,7 @@ import {
 } from "react-icons/si"
 import { VscAzure } from "react-icons/vsc"
 
-export const TECH_STACK_ICONS: Record<StackOptions, ReactNode | null> = {
+export const TECH_STACK_ICONS: Record<StackOptions, JSX.Element | null> = {
   "JavaScript": <SiJavascript className="w-6 h-6" />,
   "TypeScript": <SiTypescript className="w-6 h-6" />,
   "React": <SiReact className="w-6 h-6" />,
