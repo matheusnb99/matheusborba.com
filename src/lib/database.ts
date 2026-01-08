@@ -4,6 +4,39 @@ import { TimeLineItemType } from "@/lib/types/Timeline"
 
 export const timelineElements: TimeLineItemType[] = [
   {
+    id: 9,
+    title: "Infrastructure Engineer",
+    description:
+      "Setup of a complete enterprise infrastructure from scratch on Proxmox",
+    company: "Proxmox Infra",
+    startDate: new Date("sep 2025"),
+    endDate: new Date("dec 2025"),
+    category: "project",
+    technologies: [
+      "Proxmox",
+      "OPNsense",
+      "Nginx",
+      "Keepalived",
+      "Bind9",
+      "Active Directory",
+      "Zabbix",
+      "Astro",
+      "PostgreSQL",
+    ],
+    tasks: [
+      "Firewall configuration on OPNsense",
+      "DNS server setup with Bind9",
+      "Active Directory implementation",
+      "High-availability showcase website on 2 nodes (web1, web2, db-pg1, db-pg2) using Nginx, Keepalived, and PostgreSQL",
+      "Zabbix monitoring server deployment",
+      "Reverse proxy configuration",
+      "Internal ticketing and wiki server",
+      "Network isolation with separate VLANs",
+    ],
+    siteUrl: "",
+    image: "projects/proxmox-infra.png",
+  },
+  {
     id: 8,
     title: "Fullstack Developer",
     description: "Subscription-based fitness social platform",

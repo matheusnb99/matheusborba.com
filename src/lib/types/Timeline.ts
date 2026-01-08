@@ -39,6 +39,15 @@ export type StackOptions =
   | "JWT"
   | "Cobra"
   | "Viper"
+  | "Proxmox"
+  | "OPNsense"
+  | "Nginx"
+  | "Keepalived"
+  | "Bind9"
+  | "Active Directory"
+  | "Zabbix"
+  | "Astro"
+  | "PostgreSQL"
 
 export type TimeLineItemType = {
   id: number

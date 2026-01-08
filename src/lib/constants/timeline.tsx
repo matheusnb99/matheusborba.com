@@ -2,10 +2,14 @@ import BetterAuthIcon from "@/lib/images/svg/BetterAuthIcon"
 import JWTIcon from "@/lib/images/svg/JWTIcon"
 import NextAuthIcon from "@/lib/images/svg/NextAuthIcon"
 import ViperIcon from "@/lib/images/svg/ViperIcon"
+import { StackOptions } from "@/lib/types/Timeline"
+import { ReactNode } from "react"
 import { BiLogoGoLang } from "react-icons/bi"
 import { FaJava } from "react-icons/fa"
 import { GiCobra } from "react-icons/gi"
+import { MdOutlineDisabledByDefault } from "react-icons/md"
 import {
+  SiAstro,
   SiCss3,
   SiDjango,
   SiDocker,
@@ -19,11 +23,15 @@ import {
   SiMongodb,
   SiMysql,
   SiNextdotjs,
+  SiNginx,
   SiNotion,
+  SiOpnsense,
   SiPhp,
+  SiPostgresql,
   SiPowerapps,
   SiPowerautomate,
   SiPrisma,
+  SiProxmox,
   SiReact,
   SiReactquery,
   SiRedis,
@@ -32,16 +40,16 @@ import {
   SiStripe,
   SiTailwindcss,
   SiTypescript,
+  SiWindows,
 } from "react-icons/si"
 import { VscAzure } from "react-icons/vsc"
 
-export const TECH_STACK_ICONS = {
+export const TECH_STACK_ICONS: Record<StackOptions, ReactNode | null> = {
   "JavaScript": <SiJavascript className="w-6 h-6" />,
   "TypeScript": <SiTypescript className="w-6 h-6" />,
   "React": <SiReact className="w-6 h-6" />,
   "NextJs": <SiNextdotjs className="w-6 h-6" />,
   "php": <SiPhp className="w-6 h-6" />,
-  "docker": <SiDocker className="w-6 h-6" />,
   "Django": <SiDjango className="w-6 h-6" />,
   "MySql": <SiMysql className="w-6 h-6" />,
   "MongoDB": <SiMongodb className="w-6 h-6" />,
@@ -63,7 +71,6 @@ export const TECH_STACK_ICONS = {
   "Power Apps": <SiPowerapps className="w-6 h-6" />,
   "Power Automate": <SiPowerautomate className="w-6 h-6" />,
   "SharePoint": <SiMicrosoftsharepoint className="w-6 h-6" />,
-  "AgilePoint": null,
   "Stripe": <SiStripe className="w-6 h-6" />,
   "Azure": <VscAzure className="w-6 h-6" />,
   "Go": <BiLogoGoLang className="w-6 h-6" />,
@@ -71,17 +78,26 @@ export const TECH_STACK_ICONS = {
   "SQLite": <SiSqlite className="w-6 h-6" />,
   "Better Auth": <BetterAuthIcon />,
   "Viper": <ViperIcon />,
-  "GORM": null,
   "JWT": <JWTIcon />,
+  "Proxmox": <SiProxmox className="w-6 h-6" />,
+  "OPNsense": <SiOpnsense className="w-6 h-6" />,
+  "Nginx": <SiNginx className="w-6 h-6" />,
+  "Active Directory": <SiWindows className="w-6 h-6" />,
+  "Astro": <SiAstro className="w-6 h-6" />,
+  "PostgreSQL": <SiPostgresql className="w-6 h-6" />,
+  "AgilePoint": <MdOutlineDisabledByDefault className="w-6 h-6" color="gray" />,
+  "GORM": <MdOutlineDisabledByDefault className="w-6 h-6" color="gray" />,
+  "Keepalived": <MdOutlineDisabledByDefault className="w-6 h-6" color="gray" />,
+  "Bind9": <MdOutlineDisabledByDefault className="w-6 h-6" color="gray" />,
+  "Zabbix": <MdOutlineDisabledByDefault className="w-6 h-6" color="gray" />,
 }
 
-export const TECH_STACK_LINKS = {
+export const TECH_STACK_LINKS: Record<StackOptions, string> = {
   "JavaScript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   "TypeScript": "https://www.typescriptlang.org/",
   "React": "https://react.dev/",
   "NextJs": "https://nextjs.org/",
   "php": "https://www.php.net/",
-  "docker": "https://www.docker.com/",
   "Django": "https://www.djangoproject.com/",
   "MySql": "https://www.mysql.com/",
   "MongoDB": "https://www.mongodb.com/",
@@ -114,4 +130,15 @@ export const TECH_STACK_LINKS = {
   "Viper": "https://github.com/spf13/viper",
   "GORM": "https://gorm.io/",
   "JWT": "https://jwt.io/",
+  "Proxmox": "https://proxmox.com/en/",
+  "OPNsense": "https://opnsense.org/",
+  "Nginx": "https://nginx.org/",
+  "Keepalived":
+    "https://nginx.org/en/docs/http/ngx_http_upstream_module.html#keepalive",
+  "Bind9": "https://doc.ubuntu-fr.org/bind9",
+  "Active Directory":
+    "https://learn.microsoft.com/fr-fr/training/modules/introduction-to-ad-ds/",
+  "Zabbix": "https://www.zabbix.com/fr",
+  "Astro": "https://astro.build/",
+  "PostgreSQL": "https://www.postgresql.org/",
 }
