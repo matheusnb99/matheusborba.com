@@ -53,7 +53,7 @@ const TimelineCard: FunctionComponent<TimelineCardProps> = ({
             {element.tasks.slice(0, 3).map((task, index) => (
               <li key={index}>{task}</li>
             ))}
-            {element.tasks.length > 3 && (
+            {element.category === "project" && element.tasks.length > 3 && (
               <div className="flex justify-center mt-2">
                 <Link
                   href={`#projectId=${element.id}`}
